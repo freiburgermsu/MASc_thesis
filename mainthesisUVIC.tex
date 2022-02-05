@@ -1,6 +1,98 @@
 \documentclass[12pt,oneside]{book}
-\include{macros/style}
-\include{macros/use_packages}
+
+% \usepackage{natbib}
+\usepackage[
+    natbib=true,
+    style=numeric,
+    sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+% packages
+\usepackage{xspace}
+\usepackage{textcase}
+\usepackage{dcolumn}
+\usepackage{longtable}
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{wasysym}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{footnote}
+\usepackage{layout}
+
+% define the margins of the document
+\usepackage{geometry}
+\geometry{
+    left = 1.5cm,
+    right = 1.5cm,
+    top = 2cm,
+    bottom = 2cm
+}
+
+% asterix command ([1] => *)
+% \usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+% overbar command
+\usepackage{amsfonts}
+\newcommand{\overbar}[1]{\mkern 2.5mu\overline{\mkern-2.5mu#1\mkern-2.5mu}\mkern 2.5mu}
+
+%%%%%%%%%%%%%%%%% STYLISTIC HEADINGS %%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headings}
+% Note that the line below could be modified to suit a
+% particular system since the "geometry" package behaves
+% differently in Unix, Windows and Mac, especially for the
+% top margins.
+% Adjust the parameter "top" (measuring the height of the
+% space allocated to a header) and "headsep" (measuring
+% the distance from the bottom of the header to the
+% first line of text.
+% \usepackage[top=1.3in,left=1.5in,bottom=1in,right=1in,headsep=0.5in]{geometry}
+
+\usepackage{setspace}
+\onehalfspacing
+%\doublespacing
+
+% Headers and footers for thesis
+\usepackage{fancyhdr}
+
+\markboth{}{}
+\newcommand\startchapter[1]{\chapter{#1}\thispagestyle{myheadings}}
+\newcommand\startappendix[1]{\chapter{#1}\thispagestyle{myheadings}}
+\newcommand\startfirstchapter[1]{\chapter{#1}}
+
+% Manual addition of section to Table of Contents
+\newcommand\TOCadd[1]{\newpage\phantomsection\addcontentsline{toc}{chapter}{#1}}
+
+% Float Customization
+\renewcommand{\floatpagefraction}{0.01}
+
+% Customization of Tables of Contents and List of Figures/Tables
+\usepackage{tocloft}
+\renewcommand\cfttabpresnum{Table\ }
+\renewcommand\cfttabnumwidth{0.75in}
+\renewcommand\cftfigpresnum{Figure\ }
+\renewcommand\cftfignumwidth{0.80in}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%%%%%%%%%%%%%%%%%%%% DEFINE COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\beginsupplement}{%
+        \setcounter{table}{0}
+        \renewcommand{\thetable}{S\arabic{table}}%
+        \setcounter{figure}{0}
+        \renewcommand{\thefigure}{S\arabic{figure}}%
+        \setcounter{equation}{0}
+        \renewcommand{\theequation}{S\arabic{equation}}%
+     }
+\renewcommand{\thefootnote}{\roman{footnote}}
+
 
 \begin{document}
 
@@ -11,30 +103,22 @@
 
 % demonstrated chapters with suggestions and tips
 \include{chapters/1/chapter_intro}
-\include{chapters/2/chapter_problem}
-\include{chapters/3/chapter_new}
-\include{chapters/4/chapter_experiments}
-\include{chapters/5/chapter_evaluation}
-\include{chapters/6/chapter_conclusion}
+% \include{chapters/2/chapter_problem}
+% \include{chapters/6/chapter_conclusion}
 
 % real chapters
+\newpage
 \include{chapters/ROSSpy/main}
+\newpage
+\include{chapters/ROSSpy/supporting_information}
 
-\appendix
-\include{chapters/appendix/chapter_app}
+\newpage
+% \include{chapters/ROSSpy/main}
+% \include{chapters/ROSSpy/supporting_information}
 
-% The style of bibliography exemplified here is the "plain",
-% normally used in science theses. This is shown
-% by the entry {plain} below. Substitute the
-% appropriate bibliography style. See also the
-% PDF file "InformationOnBibliographyStyles" in this
-% directory for more choices.
 
-% The Bibliography file is a BibTex file named
-% UVicThesis.bib and called below
-
-	\TOCadd{Bibliography}
-	\bibliographystyle{plain}
-	\bibliography{UvicThesis}
+% \bibliography{references.bib}
+\printbibliography %[keyword=major,heading=subbibliography,title={Major Sources}]
+% \printbibliography[keyword=minor,heading=subbibliography,title={Minor Sources}]
 
 \end{document}

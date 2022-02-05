@@ -1,34 +1,4 @@
-\documentclass[fleqn,10pt]{wlscirep}
-% \documentclass[journal=jacsat,manuscript=article]{achemso}
 
-\usepackage{booktabs}
-\usepackage{multicol}
-\usepackage{natbib}
-\usepackage{footnote}
-\usepackage{multirow}
-\usepackage{longtable}
-\usepackage{amssymb} % http://ctan.org/pkg/amssymb
-\usepackage{amsmath}
-\usepackage{hyperref}
-\usepackage{cleveref}
-\usepackage{graphicx}
-\usepackage{layout}
-% \usepackage{natbib}
-% \usepackage{titletoc}
-% \usepackage{wangyan}
-% \usepackage[utf8]{inputenc}
-
-\newcommand{\beginsupplement}{%
-        \setcounter{table}{0}
-        \renewcommand{\thetable}{S\arabic{table}}%
-        \setcounter{figure}{0}
-        \renewcommand{\thefigure}{S\arabic{figure}}%
-        \setcounter{equation}{0}
-        \renewcommand{\theequation}{S\arabic{equation}}%
-     }
-\renewcommand{\thefootnote}{\roman{footnote}}
-
-\begin{document}
 
 % \layout
 %     \setlength{\hoffset}{0pt}
@@ -41,21 +11,15 @@
 %     \setlength{\textheight}{600pt}
 % \layout*
 
-{\huge \textbf{ROSSpy: Supporting Information}}
-
+\section{\huge \textbf{Supporting Information}}
 
 \beginsupplement
 
-\tableofcontents
-\listoffigures
-\listoftables
-\newpage
-
-\section{Conceptualization}
+\subsection{Conceptualization}
 
 \begin{figure*}[h]
     \centering
-    \includegraphics[width = \textwidth]{../images/supporting_information/membrane_scheme_3.PNG}
+    \includegraphics[width = \textwidth]{images/supporting_information/membrane_scheme_3.PNG}
     \caption{
         A cross-section of the RO filtration membrane. The listed membrane dimensions and flow rates are cited in Table S1. The polyamide membrane is further detailed in literature \cite{Strubbe2018CalibrationFull-Scale}. 
     }
@@ -64,7 +28,7 @@
 
 \begin{figure*}[h]
     \centering
-    \includegraphics[width = \textwidth]{../images/supporting_information/single_dual_domain.jpg}
+    \includegraphics[width = \textwidth]{images/supporting_information/single_dual_domain.jpg}
     \caption{
         A conceptual cross-section of the RO module. The membrane layers on top and bottom of the figure are discretized into an arbitrary $n$ cells. The figure illustrates the reactive transport phenomena, where the feed solution progressively becomes more concentrated as it transports through the module. The CP layer becomes much more concentrated than the bulk solution as a consequence of the no-slip boundary condition, which is granulated into a single solution by the single-domain model  yet is resolved into two distinct solutions by the dual-domain model. The boundaries of these two solution models are depicted as the red and green boxed regions, respectively. 
     }
@@ -73,7 +37,7 @@
 
 Cross-sections of an RO model and of the feed-membrane interface are detailed in Figures \ref{membrane_scheme}-\ref{single_dual_domain}. Figure \ref{membrane_scheme} illustrates the repeating unit of an RO filtration membrane. Figure \ref{single_dual_domain} depicts numerical reactive transport and the boundaries of the single- and dual-domain solution models.
 
-\section{Software}
+\subsection{Software}
 
 \begin{longtable}{c|c|c}
     \caption{
@@ -123,9 +87,9 @@ Cross-sections of an RO model and of the feed-membrane interface are detailed in
     $W_{aq}$ & water mass & mass of water in the system \\ \bottomrule
 \end{longtable} 
 
-\section{PHREEQC consistency}
+\subsection{PHREEQC consistency}
 
-\subsection{ICE table calculations}
+\subsubsection{ICE table calculations}
 The calculations that solve for $x$ in the presented ICE table of Table 1a. The activity coefficients ($\gamma$) for $Ca^{2+}$ and $SO_4^{2-}$ were sourced from PHREEQC for this specific solution system.
 \begin{equation} \label{ice_calculations}
     \begin{split}
@@ -149,7 +113,7 @@ The deduction of predicted precipitation into a single pore volume (solution tha
     \end{split}
 \end{equation}
 
-\subsection{Evaporation versus transport desalination}
+\subsubsection{Evaporation versus transport desalination}
 
 The mechanism of concentrating a solution, either via evaporation or desalination, should not radically alter scaling predictions of the simulation ceterius paribus. Figure \ref{evaporation} of a Red Sea simulation demonstrates the qualitative consistency of the two concentration methods. The desalination prediction quantitatively exceeded the evaporation prediction, however, by 50\%, despite controlling for the differences in pore volume of the solutions and the total active area of the desalination transport system relative to the secluded evaporation system. These calculations and simulations are contained within a Notebook of the ROSSpy GitHub repository.
 
@@ -164,7 +128,7 @@ The mechanism of concentrating a solution, either via evaporation or desalinatio
 \end{figure}
 
 
-\section{In-series RO arrangements}
+\subsection{In-series RO arrangements}
 
 In-series arrangements of multiple RO modules are represented by compounding individual modules. We determined that this approach is preferential to a few other methods: e.g. amplifying the characteristics of a single RO module in Table \ref{RO_dimensions} by a scalar $r$
 \begin{equation}
@@ -172,7 +136,7 @@ In-series arrangements of multiple RO modules are represented by compounding ind
 \end{equation}
 where the $\Delta \Phi_{multi-module}$ is the total permeate flux of the multi-module system, which can be either directly parameterized or approximated through eq. (8). The substitution of $CF_{multi}$ for $CF_e$ and $\Delta \Phi_{multi-module}$ for $\Phi_e$ into eq. (9) permits calculating $\Delta \Phi_{multi-module}$. 
 
-\section{Water bodies}
+\subsection{Water bodies}
 
 Additional feed parameter files can be composed by emulating the organization of the default feed parameter files, and updating ionic concentrations and feed conditions. Literature sources that may provide these feed conditions for a range of potential feed water sources are provided in Table \ref{new_water_bodies}, although, the sources must be vetted to ensure that the studies measure the appropriate water depth and other factors of the desired feed. 
 
@@ -246,7 +210,7 @@ Additional feed parameter files can be composed by emulating the organization of
     \label{new_water_bodies}
 \end{table}
 
-\section{Dual domain}
+\subsection{Dual domain}
 
 \begin{figure}[h!]
     \centering
@@ -264,10 +228,10 @@ Additional feed parameter files can be composed by emulating the organization of
 
 ROSSpy represents the feed solution environment as a single domain, despite that the dual-domain model is more fundamentally accurate. Our original approach of representing the dual-domain model in PHREEQ code, which is the bottleneck for using this solution model, is through representing the mobile phase (bulk) as  one set of cells -- $[1,n]~n\in W$ -- and representing the immobile phase (CP) as a second set of cells -- $[n+2,m]~m \in W>n+2$. These sets of cells exchange solvent with a parameterized rate, which in PHREEQ code is termed the Exchange Factor (EF). Our investigations of this approach have revealed peculiar phenomena in Figure \ref{ef_values}, where the brine appears to be diluting -- instead of concentrating -- over the module distance, independent of the EF exchange parameter value. Scaling phenomena, which are detailed in the dual-domain example Notebook of our GitHub, are also not sensible. We are continuing to explore PHREEQ code for a method of implementing dual-domain reactive transport, and we encourage any users or researchers to share ideas toward this end.
 
-\section{PHREEQ}
+\subsection{PHREEQ}
 PHREEQ code is the geochemical basis of ROSSpy. The PHREEQC manual details most of these calculations, and the most pertinent calculations to ROSSpy are summarized in the following section.
 
-\subsection{PHREEQ calculations}
+\subsubsection{PHREEQ calculations}
 The total concentration $\Psi_i$ of ionic species $i$ is calculated in each timestep, 
 \begin{equation} \label{total_species_concentration}
     \Psi_i=C_i+\sum_{i=1}^{N_x}(v_{ij}*C_j),
@@ -310,6 +274,4 @@ where $W_{aq}$ is the simulated water mass and $n_j$
 \end{equation}
 is the moles of compound $j$. These calculations and geochemical models are more thoroughly described in the PHREEQC manual and in peer-reviewed literature on the subjects.
 
-\bibliography{mendeley_references.bib}
-
-\end{document}
+% \bibliography{mendeley_references.bib}

@@ -1,111 +1,4 @@
-\documentclass[journal=ACSES&TWater,manuscript=article]{achemso}
-
- % Formula subscripts using \ce{}
-\usepackage[version=3]{mhchem}
-\usepackage{natbib}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{cleveref}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{multicol}
-\usepackage{longtable}
-\usepackage{amssymb}
-
-% Troubleshooting command
-%%\listfiles
-
-% asterix command ([1] => *)
-% \usepackage[symbol]{footmisc}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
-
-% overbar command
-\usepackage{amsfonts}
-\newcommand{\overbar}[1]{\mkern 2.5mu\overline{\mkern-2.5mu#1\mkern-2.5mu}\mkern 2.5mu}
-
-%%%%%%%%%%%%%%%%%%%%%%% ORCIDS %%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{xcolor}
-\usepackage{hyperref}
-\definecolor{urlcolor}{rgb}{0, 0, 1}
-\definecolor{linkcolor}{rgb}{0, 0, 1}
-\definecolor{citecolor}{rgb}{0, 0, 1}
-\hypersetup{breaklinks, colorlinks=true, citecolor=citecolor, linkcolor=linkcolor, urlcolor=urlcolor}
-
-\usepackage{scalerel}
-\usepackage{tikz}
-\usetikzlibrary{svg.path}
-\definecolor{orcidlogocol}{HTML}{A6CE39}
-\tikzset{
-  orcidlogo/.pic={
-    \fill[orcidlogocol] svg{M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z};
-    \fill[white] svg{M86.3,186.2H70.9V79.1h15.4v48.4V186.2z}
-                 svg{M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z}
-                 svg{M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1c-5.6,0-10.1-4.6-10.1-10.1c0-5.6,4.5-10.1,10.1-10.1C84.2,46.7,88.7,51.3,88.7,56.8z};
-  }
-}
-
-\newcommand\orcid[1]{\,\href{https://orcid.org/#1}{\raisebox{2pt}[0pt][0pt]{\scalerel*{
-\begin{tikzpicture}[yscale=-1,transform shape]
-\pic{orcidlogo};
-\end{tikzpicture}
-}{+}}}\,}
-\usepackage{setspace}
-\setstretch{0.9}
-
-% \abbreviations{IR,NMR,UV}
-% \keywords{American Chemical Society, \LaTeX}
-
-%%%%%%%%%%%%%%%%%%%%%%% WORD COUNT %%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{verbatim}
-\newcommand{\quickwordcount}[1]{%
-  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
-  \input{#1-words.sum} words%
-}
-\newcommand{\detailtexcount}[1]{%
-  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }%
-  \verbatiminput{#1.wcdetail}%
-}
-\newcommand{\quickcharcount}[1]{%
-  \immediate\write18{texcount -1 -sum -merge -char -q #1.tex output.bbl > #1-chars.sum }%
-  \input{#1-chars.sum} characters (not including spaces)%
-}
-%TC:ignore
-\quickwordcount{main}
-%\quickcharcount{main}
-\detailtexcount{main}
-%TC:endignore
-
-%  \\cite{[^\}]+}
-%  \\ref{[^\}]+}
-
-%%%%%%%%%%%%%%%%%%%%%%% TITLE, AUTHORSHIP %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\title[ROSSpy]{A one-dimensional model of RO membrane scaling via ROSSpy}
-
-\author{Andrew Philip Freiburger\orcid{0000-0002-7288-535X}$^{1,2}$
-    \footnote[1]{
-    To whom correspondence should be addressed. Tel: 616-322-8036 ; email: andrewfreiburger@gmail.com
-    }
-}
-\author{Sergi Molins\orcid{0000-0001-7675-3218}\,$^{2}$}
-\author{Heather Louisa Buckley\orcid{0000-0001-7147-0980}\,$^{1,3}$} \\
-\affiliation{   
-$^{1}$Department of Civil Engineering and $^{3}$Centre for Advanced Materials and Related Technology (CAMTEC), University of Victoria, 3800 Finnerty Road, Victoria, BC V8P 5C2, CAN ; 
-$^{2}$Reactive Transport Group, Lawrence Berkeley National Laboratory, 1 Cyclotron road, Berkeley, CA
-}
-
-%%%%%%%%%%%%%%%%%%%%%%% PREAMBLE ENDS %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{document}
-
-\begin{abstract}
-Earth -- the blue planet -- retains $\approx 1E18~ liters$ of water, yet billions of people experience water insecurity each year. This ironic problem extends from most water being excessively saline or otherwise not potable. Desalination technologies can resolve water insecurities by removing impurities from abundant feed waters such as the ocean, and thereby produce potable water despite local water conditions. Reverse osmosis (RO) desalination, which bifurcation feed water into a potable permeate and a hyper-concentrated brine byproduct of the impurities on the feed-side of the membrane, is leading desalination technologies for being economical, modular, and efficacious. The brine byproduct is problematic for fostering fouling phenomena like mineral scaling that hinders the efficiency of RO desalination and thus limits its use in low-resource contexts. Scaling prevention is therefore an appealing area of study in desalination, however, scaling geochemistry remains elusive to experimental methods and existing computational software are esoteric and financially expensive. We therefore developed a one-dimensional reactive transport model of RO desalination, via PHREEQC and Python languages: the RO Scaling Software in Python (ROSSpy). This is an accessible and open-source software that alleviates bottlenecks in scaling research by allowing users to investigate RO geochemistry and explore the sensitivity of scaling to system specifications; hence, it can be a powerful predictive tool for investigating candidate feed waters against their propensity to foul during desalination. ROSSpy is available in PyPI as a Python API, and a command-line executable (iROSSpy) is developed for non-technical users. We exemplify this model through numerous case studies and sensitivity analyses, which are summarized in this paper and in our GitHub repository. We believe that ROSSpy provides a unique tool for desalination researchers to expedite both vetting feed waters and improving module designs for RO desalination.
-\end{abstract}
-
-\begin{tocentry}
-    \includegraphics{../images/graphical_abstract_3_resized.png}
-\end{tocentry}
-
+\startchapter{A one-dimensional model of RO membrane scaling via ROSSpy}
 
 \section{Introduction}
 Fresh water resources are diminishing \cite{Laghari2013MeltingUncertainty,Rasul2008GlobalRanges}, despite that water is one of the most abundant chemicals on Earth \cite{Shiklomanov1993WorldResources}. This is a consequence of global warming \cite{Hansen2006GlobalChange,IPCC2018Global1.5C} and climate change \cite{Thomas2004ExtinctionChange}, pollution \cite{Pappas2017EnergySuperpower,Zhao2016DecouplingInvestment,Moller2010DistributionWatershed}, and over-consumption \cite{Bongaarts2009HumanTransition,Meyer1992HumanChange}. One of the many consequences of less freshwater is that billions of people \cite{Unicef2017ThirstingClimate}, who disproportionately reside in developing nations, experience water insecurity each year. This disparity in access to safe and reliable drinking water is recognized as a top global challenge, and accordingly is recognized as the 6th UN Sustainable Development Goal (SDG) \cite{Jones2018TheOutlook}. 
@@ -129,7 +22,7 @@ Our model represents RO desalination as a one-dimensional reactive transport pro
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width = \linewidth]{../images/rosspy_workflow_1.PNG}
+    \includegraphics[width = \linewidth]{images/rosspy_workflow_1.PNG}
     \caption{
         The ROSSpy workflow. Step 1 describes the translation of simulation parameters -- module specifications, feed geochemistry, and simulation analysis -- into PHREEQ code -- the TRANSPORT, SOLUTION, and SELECTED\_OUTPUT blocks, respectively --  via Python logic. Step 2 describes the execution of the PHREEQ input file via either PHREEQpy in the ROSSpy API, or via the PHREEQC batch software in iROSSpy. Step 3 describes processing the predictions of brine concentrations or scaling $\frac{g}{m^2}$ into representative figures and datatables, which are exported with other simulation files.
     }
@@ -285,9 +178,9 @@ The effluent CF from each of the aforementioned papers, in the far-right columns
 \begin{figure}[t]
     \centering
     \begin{tabular}{c|c}
-        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{../images/case_studies/Zaman_comparison.png}} \\ \midrule
-        \includegraphics[width=0.49\linewidth]{../images/case_studies/Ahmed_comparison.png} & 
-        \includegraphics[width=0.49\linewidth]{../images/case_studies/Hajbi_comparison.png} \\ \bottomrule
+        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/case_studies/Zaman_comparison.png}} \\ \midrule
+        \includegraphics[width=0.49\linewidth]{images/case_studies/Ahmed_comparison.png} & 
+        \includegraphics[width=0.49\linewidth]{images/case_studies/Hajbi_comparison.png} \\ \bottomrule
     \end{tabular}
     \caption{
         The \%-error between the predicted effluent brine concentrations from ROSSpy and the experimental brine measurements from RO plants. Panels a-c) correspond with the Zaman et al. \cite{Zaman2015DownstreamCompounds}, Ahmed et al. \cite{Ahmed2001BrineEmirates}, and Hajbi et al. \cite{Hajbi2010ReuseBrine} studies, respectively, and each possess different y-axis scales to best resolve the bars in each graph. 
@@ -393,9 +286,9 @@ The two simulation perspectives can be enacted through our model and ROSSpy: eit
 \begin{figure}[t]
     \centering
     \begin{tabular}{c}
-        \includegraphics[width=\linewidth]{../images/case_studies/scaling_all_time_goergeyite.png} 
+        \includegraphics[width=\linewidth]{images/case_studies/scaling_all_time_goergeyite.png} 
         \\ \midrule
-        \includegraphics[width=\linewidth]{../images/case_studies/scaling_all_distance.png} 
+        \includegraphics[width=\linewidth]{images/case_studies/scaling_all_distance.png} 
     \end{tabular}
     \caption{
         Scaling while either a) slicing through time at the end distance or b) slicing  through distance at the final time. The permeate flux of the simulation is elevated to augment the scaling geochemistry for this illustration.
@@ -428,21 +321,4 @@ A one-dimensional approximation of RO reactive transport geochemistry, modeled i
 \section{Funding}
 This work was prepared in partial fulfillment of the requirements of the Berkeley Lab Undergraduate Research (BLUR) Program, managed by Workforce Development \& Education at the Berkeley Lab. The project was also partly funded by NSERC Discovery, MITACS Accelerate, CEWIL, and Canada Summer Jobs. 
 
-% Acknowledgements section
-\begin{acknowledgement}
-
-The authors thank Ethan Sean Chan for his technical assistance in developing iROSSpy. 
-
-\end{acknowledgement}
-
-% Supporting information section
-\begin{suppinfo}
-A complete Supporting Information document is associated with this paper.
-
-All of the described simulation figures and experiments are presented in the examples folder of the ROSSpy GitHub page \url{https://github.com/freiburgermsu/ROSSpy}.
-
-\end{suppinfo}
-
-\bibliography{mendeley_references.bib}
-
-\end{document}
+% \bibliography{mendeley_references.bib}
