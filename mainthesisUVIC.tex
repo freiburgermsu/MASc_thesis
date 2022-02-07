@@ -26,6 +26,10 @@
 \usepackage{amssymb}
 \usepackage{footnote}
 \usepackage{layout}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{mathtools}
+
 
 % define the margins of the document
 \usepackage{geometry}
@@ -102,20 +106,27 @@
 \newpage
 
 % demonstrated chapters with suggestions and tips
-\include{chapters/1/chapter_intro}
 % \include{chapters/2/chapter_problem}
 % \include{chapters/6/chapter_conclusion}
 
-% real chapters
+% chapters
+\newpage
+\include{chapters/1/chapter_intro}
+
 \newpage
 \include{chapters/ROSSpy/main}
 \newpage
 \include{chapters/ROSSpy/supporting_information}
 
 \newpage
-% \include{chapters/ROSSpy/main}
-% \include{chapters/ROSSpy/supporting_information}
+\include{chapters/PDIpy/main}
+\newpage
+\include{chapters/PDIpy/SI}
 
+% \newpage
+% \include{chapters/PDIpy/main}
+% \newpage
+% \include{chapters/PDIpy/SI}
 
 % \bibliography{references.bib}
 \printbibliography %[keyword=major,heading=subbibliography,title={Major Sources}]

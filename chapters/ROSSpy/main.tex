@@ -20,7 +20,7 @@ We therefore developed an open-source model and API of RO desalination with PHRE
 
 Our model represents RO desalination as a one-dimensional reactive transport process along the membrane-solution interface. The feed is represented through the single-domain model in Figure S1, where the bulk and CP solutions are aggregated into a single solution, as opposed to the dual-domain model, where the bulk and CP solutions are individually resolved (Figure S3) \cite{Chen2016AssessingModel,Scruggs2019TheInterface,Greskowiak2015AUVI,Mieles2012AnalyticalSystem}. The dual-domain is more fundamentally accurate, however, it remains elusive within the confines of PHREEQC logic and we moreover demonstrate accuracy of the single-domain model through replicating experimental observations with ROSSpy simulations. The inlet of the RO module is defined by the Dirichlet boundary condition, where the feed is considered to be an infinite reservoir. The outlet of the RO module is defined by the Cachy boundary condition, where the concentration is dependent upon the desalination process \cite{Gosses2018ExplicitModels,Moes2006ImposingMethod,Bazilevs2007WeakMechanics}. A glossary of parameters and variables for the equations and calculations are provided in Table S1.
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
     \includegraphics[width = \linewidth]{images/rosspy_workflow_1.PNG}
     \caption{
@@ -137,7 +137,7 @@ The equation sequence for this permeate flux method:
 \subsubsection{Comparison of permeate flux methods}
 Scaling predictions from the two permeate flux methods -- linear permeate flux and linear CF -- are juxtaposed in Figure \ref{permeate_approach}. The most significant difference is observed at the mid-point of the simulated module ($0.47 m$), where the linear CF simulation predicts $0.99 \frac{gram}{m^2}$ of Gypsum scale while the linear permeate flux simulation predicts $0.0196 \frac{gram}{m^2}$ of Gypsum scale. These differences, however, are ultimately averaged-out, where the predicted quantity of scale over the entire module is identical between these two methods to 3 significant digits ($38.7 \frac{gram}{m^2}$). The permeate flux method is therefore believed to subtly affect only the distribution, and not the total quantity, of scale within a module. 
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{images/sensitivity_analyses/permeate_approach/linear_permeate.png} \\ \midrule
     \includegraphics[width=\linewidth]{images/sensitivity_analyses/permeate_approach/linear_cf.png} 
@@ -175,7 +175,7 @@ This study  evaluates the recovery of commodity salts from RO brine at a plant i
 \paragraph{CF verification}
 The effluent CF from each of the aforementioned papers, in the far-right columns of each sub-figure in Figure \ref{bar_graphs}, which was calculated via water mass change in \cref{cf_definition}, deviates by $[0.78, 2.3]-\%$. This accuracy affirms the permeate flux calculation methods, and is well within the margin of error that is attributed to feed parameters, as represented by the $\%-error$ of the ionic concentrations.
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
     \begin{tabular}{c|c}
         \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/case_studies/Zaman_comparison.png}} \\ \midrule
@@ -205,7 +205,7 @@ The precipitation equilibria of PHREEQC were quantitatively verified through an 
       C & $-0.01859$ && $-0.01859$ && $+0.01961$ \\
       F & $0.3360$ && $1.797$ && $0.01961$ \\
       \bottomrule
-      
+      \\
       \toprule
       \textbf{b} & $Ca^{2+}$ & $+$ & $SO_4^{2-}$ & $\leftrightharpoons$ & $CaSO_4$ \\
       \midrule
@@ -271,7 +271,7 @@ A standard simulation of the Red Sea as the feed source was conducted with each 
 \subsection{Simulation perspective}
 The two simulation perspectives can be enacted through our model and ROSSpy: either analyzing 1) the entire module distance at the final time or 2) the entire time at the module end. These perspectives along the multi-dimensional data to be sliced into one-dimensional sets that can be illustrated with scaling or brine data in two-dimensional plots: e.g. Figures \ref{brine_perspectives}-\ref{scaling_perspectives}. These complementary slicing perspectives allow the user to visually interpret the meaningful content of the raw data, e.g. to estimate scale accumulation after a specified time \cite{Chai2007UltrasoundModules} or to observe the evolution of scale over time. The raw data is also exported as CSV, for users to parse and process through other means.
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
     \begin{tabular}{c}
         \includegraphics[width=\linewidth]{images/sensitivity_analyses/simulation_perspective/brine_all_time.png} \\ \midrule
@@ -283,7 +283,7 @@ The two simulation perspectives can be enacted through our model and ROSSpy: eit
     \label{brine_perspectives}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
     \begin{tabular}{c}
         \includegraphics[width=\linewidth]{images/case_studies/scaling_all_time_goergeyite.png} 
