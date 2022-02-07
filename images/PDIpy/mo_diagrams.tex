@@ -1,0 +1,55 @@
+\documentclass{article}
+
+% packages for the MO diagrams
+\usepackage{modiagram}
+\usepackage{chemmacros}
+\usepackage{chemfig}
+
+\begin{document}
+
+\begin{modiagram}[labels, labels-fs=\footnotesize,names]
+    \atom[\chlewis{0.,90.,180,270}{O}]{left}{ 
+        1s = {;pair} ,
+        2s = {;pair} ,
+        2p = {;pair,up,up}
+    }
+    \atom[\chlewis{0.,90.,180,270}{O}]{right}{ 
+        1s = {;pair} ,
+        2s = {;pair} ,
+        2p = {;pair,up,up}
+    }
+    \molecule[\chemfig{\charge{90=\.,180=\:,270=\:}{O}-\charge{0=\:,90=\.,270=\:}{O}}]{ 
+        1sMO = {;pair, pair} ,
+        2sMO = {;pair, pair} ,
+        2pMO = {; pair, pair, pair, up, up}
+    }
+    \draw[draw=red, very thick] (2piz*) circle (8pt);
+    \draw[draw=red, very thick] (2piy*) circle (8pt);
+    \draw[red] (5.1,6.4) node {radical electrons};
+    \draw(3,-2) node{or \ch{^3 O2}};
+\end{modiagram}
+
+\vspace{100px}
+
+\begin{modiagram}[labels, labels-fs=\footnotesize,names]
+    \atom[\chlewis{0.,90.,180,270}{O}]{left}{ 
+        1s = {;pair} ,
+        2s = {;pair} ,
+        2p = {;pair,up,up}
+    }
+    \atom[\chlewis{0.,90.,180,270}{O}]{right}{ 
+        1s = {;pair} ,
+        2s = {;pair} ,
+        2p = {;pair,up,up}
+    }
+    \molecule[\chemfig{\charge{135=\:,225=\:}{O}=\charge{45=\:,315=\:}{O}}]{ 
+        1sMO = {;pair, pair} ,
+        2sMO = {;pair, pair} ,
+        2pMO = {; pair, pair, pair, pair,}
+        }
+    \draw[draw=red, very thick] (2piy*) circle (8pt);
+    \draw[red] (5.1,6.4) node {bonded electrons};
+    \draw(3,-2) node{or \ch{^1 O2}};
+\end{modiagram}
+
+\end{document}
