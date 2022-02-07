@@ -19,7 +19,7 @@
 
 \begin{figure*}[h]
     \centering
-    \includegraphics[width = \textwidth]{images/supporting_information/membrane_scheme_3.PNG}
+    \includegraphics[width = \textwidth]{images/ROSSpy/supporting_information/membrane_scheme_3.PNG}
     \caption{
         A cross-section of the RO filtration membrane. The listed membrane dimensions and flow rates are cited in Table S1. The polyamide membrane is further detailed in literature \cite{Strubbe2018CalibrationFull-Scale}. 
     }
@@ -28,7 +28,7 @@
 
 \begin{figure*}[h]
     \centering
-    \includegraphics[width = \textwidth]{images/supporting_information/single_dual_domain.jpg}
+    \includegraphics[width = \textwidth]{images/ROSSpy/supporting_information/single_dual_domain.jpg}
     \caption{
         A conceptual cross-section of the RO module. The membrane layers on top and bottom of the figure are discretized into an arbitrary $n$ cells. The figure illustrates the reactive transport phenomena, where the feed solution progressively becomes more concentrated as it transports through the module. The CP layer becomes much more concentrated than the bulk solution as a consequence of the no-slip boundary condition, which is granulated into a single solution by the single-domain model  yet is resolved into two distinct solutions by the dual-domain model. The boundaries of these two solution models are depicted as the red and green boxed regions, respectively. 
     }
@@ -119,8 +119,8 @@ The mechanism of concentrating a solution, either via evaporation or desalinatio
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\linewidth]{images/sensitivity_analyses/evaporation/evaporation.png} \\ \midrule
-    & \includegraphics[width=\linewidth]{images/sensitivity_analyses/evaporation/desalination.png}
+    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/evaporation/evaporation.png} \\ \midrule
+    & \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/evaporation/desalination.png}
     \caption{
         Scaling masses from Red Sea simulations of evaporation and desalination reactive transport. The scaling predictions between the two simulations are qualitatively identical. The final scaling mass from evaporation, however, is quantitatively less than that of desalination transport, even after accounting for the accumulation amongst different pore volumes: i.e.  3.36 grams versus 5.27 grams. This is attributed to the accumulation of scale over multiple timesteps within the same pore volume. 
     }
@@ -215,10 +215,10 @@ Additional feed parameter files can be composed by emulating the organization of
 \begin{figure}[h!]
     \centering
     \begin{tabular}{c|c}
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/EF/mobile_large_ef.png} &
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/EF/immobile_large_ef.png} \\ \midrule
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/EF/mobile_small_ef.png} & 
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/EF/immobile_small_ef.png} \\ \bottomrulerule
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/EF/mobile_large_ef.png} &
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/EF/immobile_large_ef.png} \\ \midrule
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/EF/mobile_small_ef.png} & 
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/EF/immobile_small_ef.png} \\ \bottomrulerule
     \end{tabular}
     \caption{
         Scaling predictions from different exchange factor (EF) parameter values of the otherwise same simulation, which are the $\frac{1}{sec}$ rate constant of solvent exchange between the mobile and immobile phases. Panels a) and b) depict the mobile (bulk) and immobile (CP) phases of a simulation with $EF=1E10$, while panels c) and d) depict the mobile and immobile phases of a simulation with $EF=1E-10$, respectively.

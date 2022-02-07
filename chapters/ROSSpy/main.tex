@@ -22,7 +22,7 @@ Our model represents RO desalination as a one-dimensional reactive transport pro
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width = \linewidth]{images/rosspy_workflow_1.PNG}
+    \includegraphics[width = \linewidth]{images/ROSSpy/rosspy_workflow_1.PNG}
     \caption{
         The ROSSpy workflow. Step 1 describes the translation of simulation parameters -- module specifications, feed geochemistry, and simulation analysis -- into PHREEQ code -- the TRANSPORT, SOLUTION, and SELECTED\_OUTPUT blocks, respectively --  via Python logic. Step 2 describes the execution of the PHREEQ input file via either PHREEQpy in the ROSSpy API, or via the PHREEQC batch software in iROSSpy. Step 3 describes processing the predictions of brine concentrations or scaling $\frac{g}{m^2}$ into representative figures and datatables, which are exported with other simulation files.
     }
@@ -139,8 +139,8 @@ Scaling predictions from the two permeate flux methods -- linear permeate flux a
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{images/sensitivity_analyses/permeate_approach/linear_permeate.png} \\ \midrule
-    \includegraphics[width=\linewidth]{images/sensitivity_analyses/permeate_approach/linear_cf.png} 
+    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/permeate_approach/linear_permeate.png} \\ \midrule
+    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/permeate_approach/linear_cf.png} 
     \caption{
         Predicted scaling, of the Red Sea at $CF_{effluent}=1.114$, via the a) linear permeate flux and the b) linear CF calculation methods. 
     }
@@ -178,9 +178,9 @@ The effluent CF from each of the aforementioned papers, in the far-right columns
 \begin{figure}[h]
     \centering
     \begin{tabular}{c|c}
-        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/case_studies/Zaman_comparison.png}} \\ \midrule
-        \includegraphics[width=0.49\linewidth]{images/case_studies/Ahmed_comparison.png} & 
-        \includegraphics[width=0.49\linewidth]{images/case_studies/Hajbi_comparison.png} \\ \bottomrule
+        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/ROSSpy/case_studies/Zaman_comparison.png}} \\ \midrule
+        \includegraphics[width=0.49\linewidth]{images/ROSSpy/case_studies/Ahmed_comparison.png} & 
+        \includegraphics[width=0.49\linewidth]{images/ROSSpy/case_studies/Hajbi_comparison.png} \\ \bottomrule
     \end{tabular}
     \caption{
         The \%-error between the predicted effluent brine concentrations from ROSSpy and the experimental brine measurements from RO plants. Panels a-c) correspond with the Zaman et al. \cite{Zaman2015DownstreamCompounds}, Ahmed et al. \cite{Ahmed2001BrineEmirates}, and Hajbi et al. \cite{Hajbi2010ReuseBrine} studies, respectively, and each possess different y-axis scales to best resolve the bars in each graph. 
@@ -234,9 +234,9 @@ The study  evaluates the use of a membrane bioreactor -- which is a hollow-fiber
 
 \begin{figure}
     \begin{tabular}{c|c}
-        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/case_studies/Karabelas_2020_wateq4.png}} \\
-        \includegraphics[width=0.49\linewidth]{images/case_studies/Karabelas_2014_pitzer.png} 
-        & \includegraphics[width=0.49\linewidth]{images/case_studies/Lee_pitzer.png} \\
+        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/ROSSpy/case_studies/Karabelas_2020_wateq4.png}} \\
+        \includegraphics[width=0.49\linewidth]{images/ROSSpy/case_studies/Karabelas_2014_pitzer.png} 
+        & \includegraphics[width=0.49\linewidth]{images/ROSSpy/case_studies/Lee_pitzer.png} \\
     \end{tabular}
     \caption{
         The qualitative validation of scaling for a) multiple minerals from the Karabelas et al., 2020 study; for b) Gypsum in the Karabelas et al., 2014 study; or for c) Calcite in the Lee et al. study.
@@ -256,10 +256,10 @@ A standard simulation of the Red Sea as the feed source was conducted with each 
 \begin{figure}[h]
     \centering
     \begin{tabular}{c|c}
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/databases/ColdChem.png} 
-        & \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/databases/FreezChem.png} \\ \midrule 
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/databases/Pitzer.png} 
-        & \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/databases/Sit.png} 
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/ColdChem.png} 
+        & \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/FreezChem.png} \\ \midrule 
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/Pitzer.png} 
+        & \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/Sit.png} 
         \\ \bottomrule
     \end{tabular}
     \caption{
@@ -274,8 +274,8 @@ The two simulation perspectives can be enacted through our model and ROSSpy: eit
 \begin{figure}[h]
     \centering
     \begin{tabular}{c}
-        \includegraphics[width=\linewidth]{images/sensitivity_analyses/simulation_perspective/brine_all_time.png} \\ \midrule
-        \includegraphics[width=\linewidth]{images/sensitivity_analyses/simulation_perspective/brine_all_distance.png}
+        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/brine_all_time.png} \\ \midrule
+        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/brine_all_distance.png}
     \end{tabular}
     \caption{
         Brine formation while either a) slicing through time at the end distance or b) slicing  through distance at the final time. The final concentrations differ slightly between the two simulation perspectives, where the all\_time perspective calculates the true end of the last cell while the all\_distance perspective calculates the mid-point of the last cell and thus has a slightly lower concentration. 
@@ -286,9 +286,9 @@ The two simulation perspectives can be enacted through our model and ROSSpy: eit
 \begin{figure}[h]
     \centering
     \begin{tabular}{c}
-        \includegraphics[width=\linewidth]{images/case_studies/scaling_all_time_goergeyite.png} 
+        \includegraphics[width=\linewidth]{images/ROSSpy/case_studies/scaling_all_time_goergeyite.png} 
         \\ \midrule
-        \includegraphics[width=\linewidth]{images/case_studies/scaling_all_distance.png} 
+        \includegraphics[width=\linewidth]{images/ROSSpy/case_studies/scaling_all_distance.png} 
     \end{tabular}
     \caption{
         Scaling while either a) slicing through time at the end distance or b) slicing  through distance at the final time. The permeate flux of the simulation is elevated to augment the scaling geochemistry for this illustration.
@@ -302,9 +302,9 @@ Each of the default feed parameter files, including both natural seas and produc
 \begin{figure}[h]
     \centering
     \begin{tabular}{c|c}
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/feed_source/Mediterranean.png} &
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/feed_source/Palo_Duro_basin.png} \\ \midrule
-        \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/feed_source/Red_Sea.png} & \includegraphics[width=0.49\textwidth]{images/sensitivity_analyses/feed_source/German_Basin.png} \\ \bottomrule
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/feed_source/Mediterranean.png} &
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/feed_source/Palo_Duro_basin.png} \\ \midrule
+        \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/feed_source/Red_Sea.png} & \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/feed_source/German_Basin.png} \\ \bottomrule
     \end{tabular}
     \caption{
         Scaling predictions of a) the Mediterranean Sea, b) produced waters from the Palo Duro oil basin, c) the Red Sea, d) produced waters from the North German oil basin, with otherwise identical simulation parameters.
