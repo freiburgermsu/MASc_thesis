@@ -15,7 +15,6 @@
 \usepackage[version=4]{mhchem}
 \usepackage{hyperref}
 \usepackage{cleveref}
-\usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{wasysym}
@@ -29,7 +28,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{siunitx}
 \usepackage{mathtools}
-
+\usepackage{lineno}
+\usepackage{ragged2e}
+\usepackage{xcolor,fancybox}
+\usepackage{listings}
+\usepackage{gensymb}
+\usepackage{booktabs}
 
 % define the margins of the document
 \usepackage{geometry}
@@ -39,6 +43,11 @@
     top = 2cm,
     bottom = 2cm
 }
+
+% create the function for illustrating in-line Python code
+\newcommand{\pyobject}[1]{
+    \ovalbox{\color{red}{\texttt{#1}}}
+    } 
 
 % asterix command ([1] => *)
 % \usepackage[symbol]{footmisc}
@@ -95,6 +104,25 @@
         \setcounter{equation}{0}
         \renewcommand{\theequation}{S\arabic{equation}}%
      }
+% \newcommand{\endsupplement}{%
+%         \setcounter{table}{0}
+%         \renewcommand{\thetable}{\arabic{table}}%
+%         \setcounter{figure}{0}
+%         \renewcommand{\thefigure}{\arabic{figure}}%
+%         \setcounter{equation}{0}
+%         \renewcommand{\theequation}{\arabic{equation}}%
+%      }
+
+
+\newenvironment{supplementary}{
+    \setcounter{table}{0}       
+    \renewcommand{\thetable}{S\arabic{table}}        
+    \setcounter{figure}{0}         
+    \renewcommand{\thefigure}{S\arabic{figure}} 				 
+    \setcounter{equation}{0}         
+    \renewcommand{\theequation}{S\arabic{equation}}
+    } 
+
 \renewcommand{\thefootnote}{\roman{footnote}}
 
 
@@ -105,13 +133,10 @@
 
 \newpage
 
-% demonstrated chapters with suggestions and tips
-% \include{chapters/2/chapter_problem}
-% \include{chapters/6/chapter_conclusion}
-
 % chapters
+\linenumbers
 \newpage
-\include{chapters/1/chapter_intro}
+\include{chapters/Introduction/chapter_intro}
 
 \newpage
 \include{chapters/ROSSpy/main}
@@ -119,14 +144,18 @@
 \include{chapters/ROSSpy/supporting_information}
 
 \newpage
+\include{chapters/WCMpy/main}
+\newpage
+\include{chapters/WCMpy/supporting_information}
+
+\newpage
 \include{chapters/PDIpy/main}
 \newpage
 \include{chapters/PDIpy/SI}
 
-% \newpage
-% \include{chapters/PDIpy/main}
-% \newpage
-% \include{chapters/PDIpy/SI}
+\newpage
+\include{chapters/Future/future_work}
+
 
 % \bibliography{references.bib}
 \printbibliography %[keyword=major,heading=subbibliography,title={Major Sources}]
