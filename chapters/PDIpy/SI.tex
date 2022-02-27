@@ -1,16 +1,16 @@
 \section{Supporting Information: PDIpy}
 
 \subsection{Molecular Orbitals}
-The electronic difference between $\ce{^1O2}$ and $\ce{^3O2}$ is best depicted through their respective molecular orbital diagrams. These diagrams in Figure \ref{mo_diagrams} highlight the subtle difference in their elecontric arrangement.
+The electronic difference between $^1\Delta_g$ and $^3\Sigma_g^-$ is best depicted through their respective molecular orbital diagrams in Figure \ref{mo_diagrams}.
 
 \begin{figure}
     \centering
     \begin{tabular}{c|c}
-        \includegraphics[width = 0.48\textwidth]{images/PDIpy/background/triplet_mo_diagram.png}
-        & \includegraphics[width = 0.48\textwidth]{images/PDIpy/background/singlet_mo_diagram.png}
+        \includegraphics[width = 0.48\textwidth]{images/background/triplet_mo_diagram.png}
+        & \includegraphics[width = 0.48\textwidth]{images/background/singlet_mo_diagram.png}
     \end{tabular}
     \caption{
-        Qualitative orbital diagrams for diatomic oxygen. Each barbed arrows represent single electron, and each platform represents the electronic orbital of the respective label. Panel a) depicts the ground triplet state ($\ce{^3O2^.}$), which characteristically contains two radical electrons in its highest occupied molecular orbital (HOMO). Panel b) depicts the excited singlet state ($\ce{^1O2}$), which characteristically contains a $\pi^*$-bond in its HOMO that destabilizes the molecule and contributes to greater reactivity.
+        Qualitative orbital diagrams for diatomic oxygen. Each barbed arrows represent single electron, and each platform represents the electronic orbital of the respective label. Panel a) depicts the ground triplet state ($^3\Sigma_g^-$), which characteristically contains two radical electrons in its highest occupied molecular orbital (HOMO). Panel b) depicts the excited singlet state ($^1\Delta_g$), which characteristically contains a $\pi^*$-bond in its HOMO that destabilizes the molecule and contributes to greater reactivity.
     }
     \label{mo_diagrams}
 \end{figure}
@@ -30,9 +30,9 @@ can be calculated with knowledge of the thickness of the cytoplasmic membrane, w
     volume_{oxidized} = \frac{2\pi}{3}*(1-angle_{oxidized})\\ 
         *(radius_{cell}^3* - (radius_{cell}-th_{membrane})^3)~,    
 \end{equation}
-where the $angle_{oxidized}$ describes the angle from vertical at which the farthest $\ce{^1O2}$ reaches the mebrane. This is conceptually similar to the $angle_{absorption}$ from the thermodynamic metabolism from the Supporting Information of the WCMpy chapter. The fraction of the membrane volume that is oxidized is then calculated 
+where the $angle_{oxidized}$ describes the angle from vertical at which the farthest $^1\Delta_g$ reaches the mebrane. This is conceptually similar to the $angle_{absorption}$ from the thermodynamic metabolism from the Supporting Information of the WCMpy chapter. The fraction of the membrane volume that is oxidized is then calculated 
 \begin{equation}
-    oxidized = volume_{oxidized} / volume_{membrane} 
+    oxidized = \frac{volume_{oxidized}}{volume_{membrane}} 
 \end{equation}
 and applied to augment the effective oxidation proportion from \cref{oxidation_proportion}
 \begin{equation}
