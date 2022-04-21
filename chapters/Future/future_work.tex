@@ -1,56 +1,53 @@
 \startchapter{Future work}
 
+The Thesis projects can be improved through the following lists, which are organized by their respective chapter and their necessity towards our goal of publishing the work.
+
 \section{ROSSpy}
-The remaining tasks for the advancement of ROSSpy towards publishing in \textit{Desalination} are detailed in the following list:
 \subsection{Necessary}
 \begin{enumerate}
-    \item \textbf{v0.1.0} - polish the source code and elevate the version number to $0.1.0$.
-    \item \textbf{Publish} - refine the manuscript and submit it for peer-review.
+    \item \textbf{Publish} - refine the manuscript \& documentation and submit it for peer-review (\textit{Desalination}).
 \end{enumerate}
 
 \subsection{Auxiliary}
 \begin{enumerate}
-    \item \textbf{Dual domain} - discern that ability to simulate reactive transport as a dual domain through PHREEQC.
-    \item \textbf{Perspective} - permit users to customize the range of module distance and time that are graphed in the simulation.
-    \item \textbf{iROSSpy} - embed the PHREEQC batch software with the iROSSpy script to create an operational command-line version of ROSSpy for non-technical users of the script.
-    \item \textbf{evaporation} - investigate why precipitation predictions from desalination simulations quantitatively exceeded those from evaporation simulations by 50\%, despite controlling for the differences in pore volume of the solutions and the total active area of the desalination module.
+    \item \textbf{Dual domain} - discern how to simulate the dual domain in PHREEQC.
+    \item \textbf{iROSSpy} - execute the PHREEQC batch software in the iROSSpy script to create an operational command-line version of ROSSpy for non-technical users.
+    \item \textbf{evaporation} - investigate why scaling from desalination quantitatively exceeds that from evaporation by 50\%, despite controlling for the differences in pore volume of the solutions and the total active area of the desalination module.
 \end{enumerate}
 
 \section{PDIpy}
-The remaining tasks for the advancement of PDIpy towards publishing in the \textit{BioPhysical Journal} are detailed in the following list:
 \subsection{Necessary}
 \begin{enumerate}
-    \item \textbf{Replication} - introduce a kinetic reaction that represents bacterial replication, which may occur in the first-order in $\ce{^3O2}$ and possess a rate constant as the inverse of the doubling time in standard media conditions. This assumes that the simulated environment provides an optimum environment for bacterial growth, where experimental conditions usually provide these conditions for adequate growth, and it assumes that the examined organism metabolizes through cellular respiration, which is true for most prokaryotes that would be studied via PDI.
-    \item \textbf{Absorption} - implement an optional argument for a measured absorptivity of the simulated PS solution that can complement the volume proportion approach that is currently used.
-    \item \textbf{Quantum yields} - permit the disaggregation of a total $\ce{^1O2}$ quantum yield into the excitation quantum yield and the energy transfer quantum yield that are used in PDIpy, to lend flexibility to values that are available to the user.
-    \item \textbf{Publish} - Refine the manuscript and submit it for peer-review.
+    \item \textbf{Cross-linked PS} - simulate a cross-linked PS, which specifically involves a) encapsulating the diffusion-limited inactivation with planktonic bacteria, and b) the effectively condensed simulation volume with sessile bacteria.
+    \item \textbf{COPASI calibration} - calibrate the inactivation lysis threshold parameter through COPASI. This will improve the transparency and precision of the calibrated value, which is an important fortification before we publish our model.
+    \item \textbf{Experimental guidance} - collaborate with Grace Tieman to use PDIpy in guiding a PDI experiment, and contrast the results of that experiment with the predictions in the paper. This will be the pinnacle of the paper.
+    \item \textbf{Publish} - refine the manuscript \& documentation and submit it for peer-review (\textit{BioPhysical Journal}).
 \end{enumerate}
 
 \subsection{Auxiliary}
 \begin{enumerate}
-    \item \textbf{Lysis Threshold} - discover literature that can explicitly validate the assumption that $[1,10]\%$ of a cytoplasmic membrane must oxidize before it lyzes.
-    \item \textbf{iPDIpy} - connect the PDIpy script with the GUI framework that has been designed to provide an interative interface for non-technical users of PDIpy.
+    \item \textbf{iPDIpy} - connect PDIpy with the GUI framework that has been drafted for non-technical users.
+    \item \textbf{Oxidation region} - implement the augmentation of the oxidation proportion for the region of the bacterial membrane that is exposed to a surface of cross-linked PSs.
+    \item \textbf{Light effects} - embody the contribution of endogenous photosensitizers -- and the permeability of PS and thus cytoplasmic oxidation -- in inactivation effects, particularly at high light doses. 
 \end{enumerate}
 
 \section{WCMpy}
-The WCMpy suite of packages will continue to be improved with features towards publishing in the \textit{BioPhysical Journal}, such as following proposed expansions:
 \subsection{Necessary}
 \begin{enumerate}
     \item \textbf{Codons: tables} - expand the accepted variations of codon translations for other organisms, possibly by using the "codons-usage-table" Python module.
-    \item \textbf{dFBApy: conditions selection} - add the ability to only use the kinetic data that most matches the specified conditions of temperature or pH.
-    \item \textbf{dFBApy: discontinuous concentration changes} - the discrete behavior from the dFBApy example must be investigated to ensure that the counter-intuitive plots are not the result of an bug.
+    \item \textbf{dFBApy: conditions selection} - add the ability to only use the kinetic data that most matches the specified conditions of temperature, pH, or possibly taxonomic similarity for similar organisms for which more data is available.
     \item \textbf{BiGG\_SABIO: multiple entries} - allow the refined kinetics file to provide multiple entries of data for each reaction/enzyme, which will permit the above aspiration for expanding the dFBA function.
     \item \textbf{BiGG\_SABIO: chemical synonyms} - improve the ability to match chemical and enzyme names between the BiGG and SABIO conventions.
     \item \textbf{WCMpy: cytoplasm chemistry} - amalgamate the suite of packages into an operational cytoplasmic model.
     \item \textbf{WCMpy: visualization} - visualize geometric growth of a cell over the simulation.
-    \item \textbf{WCMpy: biofilms} - apply a WCMpy model to a biofilm community, within the framework of the CA algorithm.
-    \item \textbf{WCMpy: Publish} - update the manuscript, with the above changes, and submit it for peer-review.
+    \item \textbf{WCMpy: biofilms} - apply a WCMpy model to a biofilm community, within a biofilm framework (e.g. the CA algorithm) and considerations of extra-cellular chemistry.
+    \item \textbf{WCMpy: Publish} - update the manuscript \& documentation and submit it for peer-review (\textit{BioPhysical Journal}).
 \end{enumerate}
 
 \subsection{Auxiliary}
 \begin{enumerate}
     \item \textbf{Codons: protein analysis} - visualize and interpret translated proteins through the "Minotaor" Python module.
     \item \textbf{Codons: GC~\%} - calculate the fraction of a genome that consists of Guanine and Cytosine, which is an influential property for biophysical experiments.
-    \item \textbf{Codons: back translation} - determine the potential genetic sequences that beget a known protein sequence, expanding upon the "backtranslate" Python module.
-    \item \textbf{BiGG\_SABIO: real-time analysis} - assess the alignment of the scraped SABIO-RK reaction data to the GEM reaction as the data is acquired, where only matched data is retained. This will importantly prevent the scraped file from bloating to $\approx 4 GB$ for full-scale GEMs, albeit at the expense of slightly longer computational time.
+    \item \textbf{Codons: back translation} - determine the potential genetic sequences that beget a known protein sequence, thereby expanding upon the "backtranslate" Python module.
+    \item \textbf{BiGG\_SABIO: real-time analysis} - check scraped SABIO-RK reaction data for alignment to the GEM model in real-time, where only matched data will be saved. This will importantly prevent the scraped file from bloating to $\approx 4 GB$ for full-scale GEMs, albeit at the expense of slightly longer computational time. An alternative is to acquire a local version of the database and then assemble kinetics files for each organism with orders-of-magnitude greater efficiency.
 \end{enumerate}

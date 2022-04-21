@@ -16,20 +16,9 @@
 
 \begin{supplementary}
 
-\subsection{Conceptualization}
+\subsection{ROSSpy}
 
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width = \textwidth]{images/ROSSpy//supporting_information/single_dual_domain.jpg}
-    \caption{
-        A conceptual cross-section of the RO module. The membrane layers on top and bottom of the figure are discretized into an arbitrary $n$ cells. The figure illustrates the reactive transport phenomena, where the feed solution progressively becomes more concentrated as it transports through the module. The CP layer becomes much more concentrated than the bulk solution as a consequence of the no-slip boundary condition, which is granulated into a single solution by the single-domain model  yet is resolved into two distinct solutions by the dual-domain model. The boundaries of these two solution models are depicted as the red and green boxed regions, respectively. 
-    }
-    \label{single_dual_domain}
-\end{figure*}
-
-A cross-section of an RO module, which highlights boundaries of the single- and dual-domain solution models, is depicted in Figures \ref{single_dual_domain}.
-
-\subsection{Software}
+The variables and terms that comprise our model are defined in Table \ref{glossary}.
 
 \begin{longtable}{c|c|c}
     \caption{
@@ -45,11 +34,11 @@ A cross-section of an RO module, which highlights boundaries of the single- and 
     
     \multirow{2}{1.5em}{$l$} & \multirow{2}{3em}{length} & longitudinal dimension of the\\& & module or module cell \\ \midrule
     \multirow{2}{1.5em}{$n$} & number of & quantity of discretizations of the module \\ & module cells & \\ \midrule
-    \multirow{2}{1.5em}{$\Phi_e$} & \multirow{2}{3em}{moles} & the $moles_{H_2O}$ that exist \\& & in cell $e$ \\ \midrule  
-    \multirow{2}{1.5em}{$\Delta \Phi_e$} & \multirow{2}{3em}{permeate flux} & the $moles_{H_2O}$ that are \\& & removed in cell $e$ \\ \midrule  
+    $\Phi_e$ & moles & the $moles_{H_2O}$ that exist in cell $e$ \\ \midrule  
+    $\Delta \Phi_e$ & permeate flux & the $moles_{H_2O}$ that are removed in cell $e$ \\ \midrule  
     $HL$ & head loss & reduction of pressure over the module distance \\ \midrule
     \multirow{2}{2em}{$PE$} & \multirow{2}{3em}{permeate efficiecy} & attenuation of permeate flux \\& & from pre-existing inefficiencies \\ \midrule  
-    \multirow{2}{2em}{$CF$} & \multirow{2}{3em}{concentration factor} & solution concentration normalized \\& & to the influent concentration \\ \midrule
+    \multirow{2}{2em}{$CF$} & \multirow{2}{3em}{concentration factor} & solution concentration of cell $e$ normalized \\& & to the influent concentration \\ \midrule
     $X$ & mass & water mass in the maximally filled feed channel \\ \midrule
     $V$ & velocity & feed velocity through the feed channel \\ \midrule
     $A$ & area & cross-sectional area of the RO module \\ \midrule
@@ -64,26 +53,55 @@ A cross-section of an RO module, which highlights boundaries of the single- and 
     $R$ & reaction flux & $\frac{mmol}{hour}$ flux of an equilibrium reaction \\ \midrule
     \multirow{2}{1em}{$\Omega$} & thermodynamic & logarithm of the $\frac{Q_{dissolution}}{K_{sp}}$ \\& displacement & \\ \midrule
     $k_m$ & rate constant & dissolution and precipitation rate constant \\ \midrule
-    $a$ & activity & activity of the respective compound \\ \midrule
-    $\eta$ & parameter & experimentally determined parameter \\ \midrule
-    $p$ & parameter & experimentally determined parameter \\ \midrule
+    $a$ & activity & chemical activity of the respective compound \\ \midrule
+    $\eta$ \& $p$ & parameter & experimentally determined parameter \\ \midrule
     \multirow{2}{2em}{$\Delta G$} & \multirow{2}{5em}{Gibbs free energy} & Gibbs free energy of the dissolution \\& & and precipitation reactions \\ \midrule
     $K$ & equilibrium constant & thermodynamic equilibrium of the respective reaction \\ \midrule
     $M$ & number of minerals & quantity of minerals in the studied system \\ \midrule
     $\gamma$ & activity coefficient & coefficient of metabolite activity in a respective system \\ \midrule
     $z$ & charge & compound charge of the respective metabolite \\ \midrule
     $\mu$ & ionic strength & charge-weighted concentration of a solution \\ \midrule
-    $A$ & parameter & experimentally determined parameter \\ \midrule
-    $B$ & parameter & experimentally determined parameter \\ \midrule
-    $a_j$ & fitted parameter & parameter that is tailored to justify the system \\ \midrule
-    $b_j$ & fitted parameter & parameter that is tailored to justify the system \\ \midrule
+    $A$ \& $B$ & parameter & experimentally determined parameter \\ \midrule
+    $a_j$ \& $b_j$ & fitted parameter & geochemical parameter that is fit to the system \\ \midrule
     $W_{aq}$ & water mass & mass of water in the system \\ \bottomrule
 \end{longtable} 
+
+The distinctions between slicing the simulation data through time or module distance is exhibited with brine in Figure \ref{brine_perspectives} and scaling in Figure \ref{scaling_perspectives}, respectively.
+
+\begin{figure}
+    \centering
+    \begin{tabular}{c}
+        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_time_brine.png} \\ \midrule
+        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_distance_brine.png}
+    \end{tabular}
+    \caption{
+        Brine formation while slicing through either a) time at the final cell or b) distance at the final time. The end concentrations slightly differ between these two simulation perspectives, where the all\_time perspective calculates the true end of the last cell while the all\_distance perspective calculates the mid-point of the last cell and thus has a slightly lower concentration. The brine represents desalination of the Red Sea through the BW30-400 module.
+    }
+    \label{brine_perspectives}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tabular}{c}
+        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_time.png} 
+        \\ \midrule
+        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_distance.png} 
+    \end{tabular}
+    \caption{
+        Scaling while either slicing through a) time at the final cell or b) distance at the final time. The underlying simulation was of the Red Sea through the BW30-400 module.
+    }
+    \label{scaling_perspectives}
+\end{figure}
+
+A cross-section of an RO module, which highlights boundaries of the single- and dual-domain solution models, is depicted in Figures \ref{single_dual_domain}.
+
+\subsection{Software}
 
 \subsection{PHREEQC consistency}
 
 \subsubsection{ICE table calculations}
-The calculations that solve for $x$ of expected precipitation in the presented ICE table of Table 1a:
+The expected precipitation in the presented ICE table of Table \ref{ice_table} was determined as $x$ in the following derivation:
+
 \begin{equation} \label{ice_calculations}
     \begin{split}
         K_{sp} &= [a_{Ca^{2+}} - x]^1 * [a_{SO_4^{2-}} - x]^1 \\ 
@@ -92,32 +110,50 @@ The calculations that solve for $x$ of expected precipitation in the presented I
         10^{-4.58} &= (0.003913 - x) * (0.00633 - x) \\
         10^{-4.58} &= 2.477E-5 - 0.01024 + X^2 \\
         0 &= -1.54E-6 - 0.01022x + x^2 \\
-         \therefore ~~ x &= 0.0104~molal = \frac{0.181~moles}{17.67~kg~water}~~.
+         \therefore ~~ x &= 0.0104~molal = \frac{\fbox{0.181~moles}}{17.67~kg~water}~~.
     \end{split}
 \end{equation}
-The activity coefficients ($\gamma$) for $Ca^{2+}$ and $SO_4^{2-}$ were sourced from PHREEQC for this specific solution system. The $17.67~kg$ mass of water corresponds to the mass maximum capacity of the BW30-400 module, which was parameterized in the simulation.  
 
-The calculations that solve for the predicted precipitation in the presented ICE table of Table 1b:
+The activity coefficients ($\gamma$) for $Ca^{2+}$ and $SO_4^{2-}$ were sourced from PHREEQC for this specific solution system. The $17.67~kg$ mass of water corresponds to the mass maximum capacity of the simulated BW30-400 module.  
+
+The predicted precipitation in the presented ICE table of Table 1b ($gypsum\_pore\_volume$) are similarly derived:
 \begin{equation} \label{PHREEQC_output_precipitation}
     \begin{split}
-        gypsum\_precipitation\_one\_module &= gypsum\_precipitation\_all\_shifts * \frac{cells\_per\_module}{total\_simulation\_shifts} \\
-         &= \sum_{i=1}^n (precipitation_i) * \frac{12}{51} \\ 
+        gypsum\_pore\_volume &= gypsum\_all\_shifts * \frac{cells\_per\_module}{total\_simulation\_shifts} \\
+         &= \sum_{i=1}^n (Gypsum_i) * \frac{12}{51} \\ 
          &= 0.823 * \frac{12}{51} \\ 
          &= 0.194 ~moles ~~.
     \end{split}
 \end{equation}
-The $\frac{12}{51}$ corresponds to the quantity of cells per module in the simulation divided by the total quantity of simulated cells, since the simulation passed numerous feed (pore) volumes through the module. This fraction reduces the total quantity of scale from the combination of all of the simulated pore volumes into a single pore volume to provide a comparable value against the expected moles of scalant.
+The $\frac{12}{51}$ is the fraction of simulation shifts that correspond to a single module or pore volume, where the simulated module was discritized into $12$ cells. This isolates scaling from a single module, instead of the accumulation of scaling from multiple pore volumes, which renders the quantity directly comparable with the expected quantity.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|ccccc}
+      \toprule
+       & $Ca^{2+}$ & $+$ & $SO_4^{2-}$ & $\leftrightharpoons$ & $CaSO_4$ \\
+      \midrule
+      I & $0.003913$ && $0.00633$ && $0$ \\
+      C & $-x$ && $-x$ && $+x$ \\
+      F & $0.003913-x$ && $0.00633-x$ && $x$ \\
+      \bottomrule
+    \end{tabular}
+    \caption{
+        Gypsum precipitation according to the ICE (Initial, Change, Equilibrium) framework, except that "Equilibrium" (E) is replaced with "Final" (F) since the system does not reach equilibrium while within the module. The estimated Gypsum precipitation from a solution of $Ca^{2+}$ \& $SO_4^{2-}$ -- based upon the $K_{sp}$ of Gypsum and the activity coefficients of this solution from iPHREEQC -- is derived in \ref{ice_calculations} for the system in this table. 
+        }
+    \label{ice_table}
+\end{table}
 
 \subsubsection{Evaporation versus transport desalination}
 
-The mechanism of concentrating a solution, either via evaporation or desalination, should not radically alter scaling predictions of the simulation, ceterius paribus. Figure \ref{evaporation} of a Red Sea simulation demonstrates the qualitative consistency of the two concentration methods. These calculations and simulations are contained within a Notebook of the ROSSpy GitHub repository.
+The mechanism of concentrating a solution, either via evaporation or desalination, should not alter scaling predictions, ceterius paribus. Figure \ref{evaporation} contrasts scaling predictions from evaporation and desalination of the Red Sea, where the two mechanisms are approximately equivalent. Differences are postulated to originate from the consideration of advection in the latter but not the former.
 
-\begin{figure}[h!]
+\begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/evaporation/evaporation.png} \\ 
+    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/evaporation/evaporation.png} \\ \midrule
     \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/evaporation/desalination.png}
     \caption{
-        Scaling masses from Red Sea simulations of evaporation and desalination reactive transport. The scaling predictions between the two simulations are qualitatively identical. The final scaling mass from evaporation, however, is quantitatively less than that of desalination transport, even after accounting for the accumulation amongst different pore volumes: i.e.  3.36 grams versus 5.27 grams. This is attributed to the accumulation of scale over multiple timesteps within the same pore volume. 
+        Scaling while a) evaporating and b) desalinating the Red Sea. The two scaling predictions are qualitatively similar, however, even after accounting for the accumulation amongst different pore volumes, the evaporation predictions ($3.36g$) are less than those of the reaction transport simulation ($5.27g$). The difference may be the absence of advection in the evaporation analysis.
     }
     \label{evaporation}
 \end{figure}
@@ -125,15 +161,7 @@ The mechanism of concentrating a solution, either via evaporation or desalinatio
 
 \subsection{In-series RO arrangements}
 
-In-series arrangements of multiple RO modules are represented by compounding individual modules. We determined that this approach is preferential to a few other methods: e.g. amplifying the characteristics of a single RO module in Table \ref{RO_dimensions} by a scalar $r$
-\begin{equation}
-    r=\frac{\Phi_{\Delta module,multi}}{\Phi_{\Delta module}},
-\end{equation}
-where the $\Delta \Phi_{multi-module}$ is the total permeate flux of the multi-module system, which can be either directly parameterized or approximated through eq. (8). The substitution of $CF_{multi}$ for $CF_e$ and $\Delta \Phi_{multi-module}$ for $\Phi_e$ into eq. (9) permits calculating $\Delta \Phi_{multi-module}$. 
-
-\subsection{Water bodies}
-
-Additional feed parameter files can be composed by emulating the organization of the default feed parameter files, and updating ionic concentrations and feed conditions. Literature sources that may provide these feed conditions for a range of potential feed water sources are provided in Table \ref{new_water_bodies}, although, the sources must be vetted to ensure that the studies measure the appropriate water depth and other factors of the desired feed. 
+In-series arrangements of multiple RO modules are represented by compounding individual modules. We determined that this approach is preferential to a few other methods: e.g. amplifying the characteristics of a single RO module, such as those in Table \ref{RO_dimensions}, by a scalar $r=\frac{\Phi_{\Delta multi-module}}{\Phi_{\Delta module}}$, where the $\Delta \Phi_{multi-module}$ is the total permeate flux of the multi-module system that can be parameterized or approximated through eq. (8). The substitution of $CF_{multi}$ for $CF_e$ and $\Delta \Phi_{multi-module}$ for $\Phi_e$ into eq. (9) permits calculating the $\Delta \Phi_{multi-module}$. 
 
 \begin{savenotes}
 \begin{table}[!h]
@@ -145,7 +173,7 @@ Additional feed parameter files can be composed by emulating the organization of
         \multicolumn{3}{c}{Module (m)} \\ \midrule
         length & 1.016 & BW30-400 \cite{2020FilmTecElement} \\ 
         diameter & 0.201 & BW30-400 \cite{2020FilmTecElement}\\
-        permeate tube diameter & 0.029 & BW30-400 \cite{2020FilmTecElement}\\ \midrule 
+        permeate tube diameter & 0.029 & BW30-400 \cite{2020FilmTecElement}\\ \midrule
         
         \multicolumn{3}{c}{Membrane (mm)} \\ \midrule
         filtration layer & 0.00025 & \cite{Pacheco2010CharacterizationTechniques,Jeong2007InterfacialMembranes} \\
@@ -153,7 +181,7 @@ Additional feed parameter files can be composed by emulating the organization of
         Permeate spacer & 0.3 & \\
         Polysulphonic layer & 0.05 &  \\
         Support layer & 0.15 &  \\
-        Windings $\left( \frac{th_{total}}{th_{membrane}} \right) $ & 86 & BW30-400 \\ \midrule
+        Windings $\left( \frac{th_{total}}{th_{membrane}} \right) $ & 86 & BW30-400 \cite{2020FilmTecElement} \\ \midrule
         
         \multicolumn{3}{c}{Membrane cross-section ($m^2$)} \\ \midrule
         Module & 0.0317 & BW30-400 \cite{2020FilmTecElement}\\
@@ -161,22 +189,25 @@ Additional feed parameter files can be composed by emulating the organization of
         Filtration section & 0.0311 & BW30-400 \cite{2020FilmTecElement}\\
         Feed channel & 0.0157 & BW30-400 \cite{2020FilmTecElement}\\ \midrule
         
-        \multicolumn{3}{c}{Feed channel capacity} \\ \midrule 
+        \multicolumn{3}{c}{Feed channel capacity} \\ \midrule
         Volume ($m^3$) & 0.0159 & BW30-400 \cite{2020FilmTecElement}\\
         Mass (kg) & 15.86 & BW30-400 \cite{2020FilmTecElement}\\ \midrule
 
-        \multicolumn{3}{c}{Fluid flow $\left( \frac{m^3}{second} \right) $} \\ \midrule
+        \multicolumn{3}{c}{Fluid flow ($\frac{m^3}{second}$)} \\ \midrule
         Permeate & 0.000463 & BW30-400 \cite{2020FilmTecElement}\\
         Max Feed & 0.00442 & BW30-400 \cite{2020FilmTecElement}\\ \bottomrule
         
     \end{tabular}
-    
     \caption{
-        General dimensions of an RO module, with the corresponding citations. The DOW FILMTEC BW30-400 RO module is the default module, based upon precedence from other software \cite{Li2012OptimalDesalination}.
+        Default dimensions of an RO module, with corresponding citations, that are primarily based upon the DOW FILMTEC BW30-400 RO module, following precedence from other software \cite{Li2012OptimalDesalination}.
     }
     \label{RO_dimensions}
 \end{table}
 \end{savenotes}
+
+\subsection{Water bodies}
+
+Additional feed parameter files can be composed by emulating the structure of the default feed parameter files. Literature sources that may foster the development of such feed parameter files for numerous potential feed sources are provided in Table \ref{new_water_bodies} with the respective citations of the experimental geochemical data. 
 
 \begin{table}[h!]
     \centering
@@ -199,14 +230,14 @@ Additional feed parameter files can be composed by emulating the organization of
         \bottomrule
     \end{tabular}
     \caption{
-        Proposed literature of potential feed water that can constitute new parameter files.
+        Proposed literature of potential feed water that can be adapted into parameter files for simulation in our model, or specifically ROSSpy.
     }
     \label{new_water_bodies}
 \end{table}
 
 \subsection{Dual domain}
 
-\begin{figure}[h!]
+\begin{figure}
     \centering
     \begin{tabular}{c|c}
         \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/EF/mobile_large_ef.png} &
@@ -215,30 +246,40 @@ Additional feed parameter files can be composed by emulating the organization of
         \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/EF/immobile_small_ef.png} \\ \bottomrule
     \end{tabular}
     \caption{
-        Scaling predictions from different exchange factor (EF) parameter values of the otherwise same simulation, which are the $\frac{1}{sec}$ rate constant of solvent exchange between the mobile and immobile phases. Panels a) and b) depict the mobile (bulk) and immobile (CP) phases of a simulation with $EF=1E10$, while panels c) and d) depict the mobile and immobile phases of a simulation with $EF=1E-10$, respectively.
+        Counter-intuitive brine predictions from dual domain simulations with different exchange factor (EF) values, which is the $\frac{1}{s}$ rate constant of solvent exchange between the mobile and immobile solution phases. Panels a) and b) depict the mobile (bulk) and immobile (CP) phases when $EF=1E10$, while panels c) and d) depict the mobile and immobile phases when $EF=1E-10$, respectively. These non-sensible results motivated our use of the single-domain model to represent RO feed flow. 
     }
     \label{ef_values}
 \end{figure}
 
-ROSSpy represents the feed solution environment as a single domain, despite that the dual-domain model is more fundamentally accurate. Our original attempt to code the dual-domain model in PHREEQC represented the mobile phase (bulk solution) as one set of cells -- $[1,n]~n\in W$ -- and the immobile phase (CP layer) as a separate set of cells -- $[n+2,m]~m \in W>n+2$. These cell sets exchange solvent at a parameterized rate (Exchange Factor, EF), which in Figure \ref{ef_values} is very influential upon the brine concentrations, and thus upon the scaling predictions. These plots, however, appears to be diluting -- instead of concentrating -- over the module distance, which is not sensible, and the scaling predictions in the dual-domain example Notebook of our GitHub, are likewise not sensible. 
+Our model represents the feed solution with the single-domain model, despite that the dual-domain model in the module cross-section of Figure \ref{single_dual_domain} is more fundamentally accurate, since our attempts to encode the latter in PHREEQC have been unsuccessful. We represent the mobile phase (bulk solution) as one set of membrane cells -- $[1,n]~n\in W$ -- and the immobile phase (CP layer) as a separate set of cells -- $[n+2,m]~m \in W>n+2$. These cell sets exchange solvent at a parameterized rate -- the Exchange Factor $\frac{1}{s}$ (EF) -- which in Figure \ref{ef_values} is very influential upon the simulation predictions; however, the brine concentrations dilute in both solution compartments during desalination simulation. The scaling predictions are equally non-sensible. Our model therefore uses the single-domain model, which appears to be an acceptable approximation per our validations. The developer of PHREEQC -- David Parkhurst -- is uncertain whether the dual-domain model is compatible with the PHREEQ code, which assures us that the single domain model may be the best approximation of desalination reactive transport that is accessible to our open-source framework.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width = \textwidth]{../images/ROSSpy/supporting_information/single_dual_domain.jpg}
+    \caption{
+        A conceptual cross-section of the RO module. The membrane layers on top and bottom of the figure are discretized into an arbitrary $n$ cells. The figure illustrates the reactive transport phenomena, where the feed solution progressively becomes more concentrated as it transports through the module. The CP layer becomes much more concentrated than the bulk solution as a consequence of the no-slip boundary condition, where the velocity gradient reaches zero at the membrane surface and thus does not diffuse. These bulk and CP solutions are resolved in the dual-domain model (green boxed regions) and are granulated into a single solution by the single-domain model (red boxed regions). The latter was implemented in our model by necessity of PHREEQC.
+    }
+    \label{single_dual_domain}
+\end{figure*}
 
 \subsection{PHREEQ}
-The PHREEQC manual details and elaborates the fundamental calculations of PHREEQC, however, the most pertinent calculations to ROSSpy are summarized in the following sub-section.
+The most pertinent calculations of PHREEQC for our model are summarized in the following sub-section, while the version 3 PHREEQC User's manual provides a rigorous description of all PHREEQC operations.
 
 \subsubsection{PHREEQ calculations}
+\subsection{PHREEQ calculations}
 The total concentration $\Psi_i$ of ionic species $i$ is calculated in each timestep, 
 \begin{equation} \label{total_species_concentration}
     \Psi_i=C_i+\sum_{j=1}^{J}(v_{ij}*C_j),
 \end{equation}
-where $C_i$ is the molal concentration of dissolved $i$; $J$ is the set of compounds that contain $i$; $C_j$ is the molal concentration of compound $j$ that contains $i$; and $v_{ij}$ is the stoichiometric coefficient for the moles of $i$ per mole of compound $j$. The mineral dissolution-precipitation equilibria over the simulation time $t$ is calculated through a similar equation, 
+where $C_i$ is the molal concentration of dissolved $i$; $J$ is the set of compounds that contain $i$; $C_j$ is the molal concentration of compound $j$ that contains $i$; and $v_{ij}$ is the stoichiometric coefficient for the moles of $i$ per mole of compound $j$. The mineral precipitation equilibria over the simulation time $t$ is calculated through a similar equation, 
 \begin{equation} \label{concentration_change}
-    \frac{\partial \Psi_i}{\partial t}=\sum_{m=1}^{N_m}(\nu_{mj}*R_m),
+    \frac{\partial \Psi_i}{\partial t}=\sum_{m=1}^{N_m}(v_{mj}*R_m),
 \end{equation}
-where $N_m$ is the set of reactions that include specie $i$; $v_{mi}$ is the stoichiometric coefficient for the moles of $i$ per mole of mineral $m$; and $R_m$ is the reaction flux of dissolution or precipitation for $(+)$ and $(-)$, respectively,
+where $N_m$ is the set of reactions that include specie $i$; $v_{mj}$ is the stoichiometric coefficient for the moles of $i$ per mole of mineral $m$; and $R_m$ is the reaction flux of dissolution or precipitation for $(+)$ and $(-)$, respectively,
 \begin{equation} \label{mineral_precipitation_reaction}
     R_m=sgn[\Omega]*A_m*k_m*(\Pi(a^n)) |e^{\frac{\eta*\Delta G}{RT}}-1|^p,
 \end{equation}
-where $\Omega = log\left(⁡\frac{Q_{dissolution}}{K_{sp}}\right)$ and, for the simulated mineral $m$, $A_m$ is the reacting surface area; $k_m$ is the rate constant of dissolution or precipitation; $Q_m$ is the ion activity product constant; and $\eta$ and $p$ are experimentally determined parameters. The $|e^{\frac{\eta * \Delta G}{RT}}-1|^p$ term of \cref{mineral_precipitation_reaction} simplifies to $1$ for irreversible precipitation or dissolution. The set of \cref{total_species_concentration,concentration_change} necessitates that any perturbations to ionic concentrations $\frac{\partial \Psi_i}{\partial t}$ manifest from complexation equilibria. The molal concentration $C_j$ of compound $j$ is discerned,
+where $\Omega = log\left(⁡\frac{Q_{dissolution}}{K_{sp}}\right)$ and, for the simulated mineral $m$, $A_m$ is the reacting surface area; $k_m$ is the rate constant of dissolution or precipitation; $Q_m$ is the ion activity product constant; and $\eta$ and $p$ are experimentally determined parameters. The $|e^{\frac{\eta * \Delta G}{RT}}-1|^p$ term simplifies to $1$ for irreversible precipitation or dissolution. The set of \cref{total_species_concentration,concentration_change} necessitates that any perturbations to ionic concentrations $\frac{\partial \Psi_i}{\partial t}$ manifest from complexation equilibria. The molal concentration $C_j$ of compound $j$ is discerned,
 \begin{equation}
     C_j=\frac{\Pi_{j=1}^{N_c} (\gamma_j*K_j )^{v_{ij}}}{\gamma_j*K_j},
 \end{equation}
@@ -246,7 +287,7 @@ where $N_c$ is the set of linearly independent chemical reactions; $\gamma_j$ is
 \begin{equation}
     K_j=a_j \Pi_m^{M_{aq}} (a_m)^{-v_{m,j}},
 \end{equation}
-where $M_{aq}$ is the number of minerals in the aqueous system; $v_{m,i}$ is the stoichiometric coefficient of compound $j$ per mole of mineral $m$; and $a_j$ and $a_m$ are the activity coefficients of compound $j$ and mineral, respectively. The activity coefficient $\gamma_j$ is calculated through either the Debye-Hückel model \cite{Aqion2016ActivityModels},
+where $M_{aq}$ is the number of minerals in the aqueous system; $v_{m,i}$ is the stoichiometric coefficient of compound $j$ per mole of mineral $m$; and $a_j$ and $a_m$ are the activity coefficients of compound $j$ and mineral $m$, respectively. The activity coefficient $\gamma_j$ is calculated through either the Debye-Hückel model \cite{Aqion2016ActivityModels},
 \begin{equation}
     log⁡(\gamma_j)=-A*z_j^2\sqrt{\mu},
 \end{equation}
@@ -258,7 +299,7 @@ the Davies model \cite{Davies1938TheSulphates},
 \begin{equation}
     log⁡(\gamma_j)=-A*z_j^2 (\frac{\sqrt{\mu}}{1+\sqrt{\mu}}-0.2\mu),
 \end{equation}
-or the empirical Pitzer model \cite{Pitzer1973ThermodynamicsEquations}, where $A$ and $B$ are experimentally determined parameters; $a_j^0$ and $b_j$ are fitted parameters; $z_j$ is the charge of compound $j$; and $\mu$ is the ionic strength of the solution. The ionic strength is separately calculated
+or the empirical Pitzer model \cite{Pitzer1973ThermodynamicsEquations}, where $A$ and $B$ are experimentally determined parameters; $a_j^0$ and $b_j$ are fitted parameters; $z_j$ is the charge of compound $j$; and $\mu$ is the ionic strength of the solution
 \begin{equation}
     \mu=\frac{1}{2}\sum_{j=1}^{N_{aq}}z_j^2 \frac{n_j}{W_{aq}},
 \end{equation}
@@ -266,7 +307,7 @@ where $W_{aq}$ is the simulated water mass and $n_j$
 \begin{equation}
     n_j=C_j*W_{aq}=\frac{K_i*W_{aq}}{\gamma_j*(\Pi_m^{M_{aq}} (a_m)^{v_{m,j}}}
 \end{equation}
-is the moles of compound $j$. These calculations and geochemical models are more thoroughly described in the PHREEQC manual and in peer-reviewed literature on the subjects.
+is the moles of compound $j$. These calculations and geochemical models are more thoroughly described in the PHREEQC manual and in the cited literature.
 
 
 \end{supplementary}

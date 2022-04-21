@@ -28,7 +28,7 @@ The combined efficiency of \cref{ps_excitation_steps,excited_ps_steps} is encaps
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width = \textwidth]{images/background/jablonski_diagram.png}
+    \includegraphics[width = \textwidth]{images/PDIpy/background/jablonski_diagram.png}
     \caption{
         A qualitative Jablonski energy diagram of photosensitization. The initial electronic absorption of a photon ($h\nu$) by $^3\Sigma_g^-$ forms a $^3\Sigma_u^+$ molecule, following the selection rules of excitation. This excited $\ce{O2}$ then either fluoresces or relaxes through intersystem-crossing into $^1\Delta_g$, which subsequently either phosphoresces or oxidizes organic substrate to form a peroxide.
     }
@@ -44,9 +44,9 @@ A narrow range of chemicals meet these criteria of an ideal PS. Semiconductors \
 
 \begin{figure}
     \centering
-    \includegraphics[width = \textwidth]{images/background/chlorophyll.png} \\
+    \includegraphics[width = \textwidth]{images/PDIpy/background/chlorophyll.png} \\
     \midrule
-    \includegraphics[width = 0.5\textwidth]{images/background/zinc_porphyrin.png}
+    \includegraphics[width = 0.5\textwidth]{images/PDIpy/background/zinc_porphyrin.png}
     \caption{
         The chemical structure of porphyrinoid chlorophyll (top) juxtaposed with the core motif of a synthetic porphyrin analogue (bottom).
     }
@@ -55,9 +55,9 @@ A narrow range of chemicals meet these criteria of an ideal PS. Semiconductors \
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width = \textwidth]{images/background/BCFA_schenck_oxidation_2.png}
+    \includegraphics[width = \textwidth]{images/PDIpy/background/BCFA_schenck_oxidation_2.png}
     \caption{
-         The reaction mechanisms of Type II oxidation and subsequent decompositions. Step (1) depicts the concerted \cite{Foote1968PhotosensitizedOxygen} Schenck reaction. Step (2) depicts the homolytic cleavage of the hydroperoxide bond to form $\ce{OH^.}$ and an oxy radical that may enter autoxidation mechanisms. Step (3) depicts radical propagation via hydrogen abstraction to form another radical substrate and an alcohol byproduct. Step (4) is a concerted Russell reaction \cite{Russell1957Deuterium-isotopeRadicals,Howard1968TheMechanism} between two peroxides that forms a $\ce{H2O2}$, an $\alpha,\beta$-ketone, and an alcohol. The reactions of Steps (2-4) sample the wide array of possible decompositions that follow oxidation mechanisms.
+         The reaction mechanisms of Type II oxidation and subsequent decompositions. Step (1) depicts the concerted \cite{Foote1968PhotosensitizedOxygen} Schenck reaction. Step (2) depicts the homolytic cleavage of the hydroperoxide bond to form $\ce{OH^.}$ and an oxy radical that may enter autoxidation mechanisms. Step (3) depicts radical propagation via hydrogen abstraction to form another radical substrate and an alcohol byproduct. Step (4) is a concerted Russell reaction \cite{Russell1957Deuterium-isotopeRadicals,Howard1968TheMechanism} between two peroxides that forms a $\ce{H2O2}$, an $\alpha,\beta$-ketone, and an alcohol. The reactions of Steps (2-4) sample the wide array of possible decompositions.
     }
     \label{schenck_mechanism}
 \end{figure}
@@ -99,8 +99,7 @@ The PDIpy API accepts a variety of parameters that allow the user to customize a
 \paragraph{PS excitation}
 PDI begins with the excitation of the PS. This occurs as the combined result of an incident photon i) entering the aqueous solution, ii) striking a PS, and then iii) exciting an electron of a PS. This sequence is encapsulated in the kinetic expression
 \begin{multline} \label{ps_excitation_kinetics}
-    \frac{d[\ce{^3PS}]}{dt} =  k_{excitation}*\frac{photons_{PS}}{photons_{total}} \\ 
-    *\Phi_{excitation}*[\ce{^1PS}] - k_{fluorescence}*[\ce{^3PS}]~. 
+    \frac{d[\ce{^3PS}]}{dt} =  k_{excitation}*\frac{photons_{PS}}{photons_{total}} *\Phi_{excitation}*[\ce{^1PS}] - k_{fluorescence}*[\ce{^3PS}]~. 
 \end{multline}
 The $k_{excitation}$ \& $k_{fluorescence}$ rate constants are estimated as the inverse of the rise and decay times for the selected PS, respectively. The approximate rise time for a porphyrin PS is $50 fs$, which is consistent with estimates of $<100 fs$ \cite{Andersson1999PhotoinducedState} and $60-90 fs$ in ethanol solvent \cite{Gurzadyan1998Time-resolvedZn-tetraphenylporphyrin} which elongates the lifetime of excited molecules relative to water. The decay time, as the S2 fluorescence \cite{Akimoto1999UltrafastPorphyrins}, and $\Phi_{excitation}$ ($\frac{PS excited}{photon absorbed}$) are approximated for a porphyrin PS as $1.5 ns$ and $\approx 0.7$ \cite{Krasnovsky2012PhotochemicalEnvironment}, respectively. The $\frac{photons_{PS}}{photons_{total}}$ \cite{Brasel2020AnAgalactiae}, which is the proportion of photons in the solution that strike a photosensitizer \cite{Santos2020ApplicationAureus}. This can be either measured as an absorbance at each wavelength \cite{Gerola2012ChemicalPhotobleaching} or calculated from the following series of steps and approximations. 1) The reported intensity of incident light from the respective light source -- i.e. irradiance ($\frac{mW}{cm^2}$), lux ($\frac{lumen}{m^2}$), or lumens (lumens) -- is converted into $watts_{incident}$ ($\frac{J}{s}$). 2) This incident wattage is attenuated by the proportion of the emission spectrum $light_{incident}$ that resides within the excitation spectrum of the parameterized PS $light_{excitation}$, 
 \begin{equation}
@@ -180,10 +179,10 @@ that improves its fit to data. The regression parameters from the fitted Hill eq
     \centering
     \begin{tabular}{l|c|c}
         \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
-        \multirow{2}{}{Planktonic} & EC50 & -76\% \\
+        \multirow{2}{0}{Planktonic} & EC50 & -76\% \\
          & nH & +100\% \\
          \midrule
-         \multirow{2}{}{Biofilm} & EC50 & -65\% \\
+         \multirow{2}{0}{Biofilm} & EC50 & -65\% \\
          & nH & +120\% \\
     \end{tabular}
     \caption{
@@ -244,11 +243,11 @@ This paper experimentally examines the efficacy of a dissolved PS, over a range 
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/examples/20uM.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/20uM.png}
     \vspace{5mm}
     \midrule
     \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/examples/10uM_biofilm.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/10uM_biofilm.png}
     \caption{
         Two exemplary figures of PDIpy replications of the Beirao et al. data for a) planktonic and b) biofilm bacterial states.
     }
@@ -257,11 +256,11 @@ This paper experimentally examines the efficacy of a dissolved PS, over a range 
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/examples/20uM_regression.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/20uM_regression.png}
     \vspace{5mm}
     \midrule
     \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/examples/10uM_biofilm_regression.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/10uM_biofilm_regression.png}
     \caption{
         The Hill-equation regressions for the oxidation plots of Figure \ref{beirao_et_al}, respectively. The high $R^2$ correlation supports that our chemical model of PDI recreates a sigmoidal biochemical relationship. The greater number of data points in panel b) is the consequence of a far longer simulation time than the simulation of panel a).
     }
@@ -276,11 +275,11 @@ The sensitivity of simulation results to light intensities, across the range of 
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/sensitivity_analyses/215_lux.png} \\
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/215_lux.png} \\
     \vspace{5mm}
     \midrule
     \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/sensitivity_analyses/100000_lux.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/100000_lux.png}
     \caption{
         The proportion of excited PS at two contrasting light intensities: a) $215~Lux$ and b) $100000~Lux$. The subtle negative slope is the consequence of photobleaching, where the quantity of excitable PSs decreases over time. This effect is more prominent in b) than in a) since photobleaching is a function of light intensity.
     }
