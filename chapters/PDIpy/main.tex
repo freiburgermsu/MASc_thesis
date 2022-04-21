@@ -2,180 +2,160 @@
 \label{PDIpy_chapter}
 
 \section{Introduction}
-Antibiotic resistant infections are projected to exceed cancer in annual deaths, and globally cost $10^{13}~USD$ in lost economic production, by mid-21st century \cite{ONeill2014AntimicrobialNations}. Methicillin-resistant \textit{Staphylococcus aureus} (MRSA) \cite{Song2011SpreadStudy,Borg2007PrevalenceCountries} and fluoroquinolone-resistant \textit{Salmonella} \cite{Moghnieh2018EpidemiologyLeague} are two worrisome examples of virulent pathogens that are developing resistance to the antibiotics that subdued them during the 20th century. Antimicrobial resistance (AMR) evolution can be slowed by reducing excessive and incomplete use of antibiotics for human illness and animal agriculture (which is globally the primary consumer of antibiotics \cite{VanBoeckel2017ReducingAnimals,Eggleton2020TheWorld}); however, the fundamental cause of AMR is the conventional strategy of targeting a specific microbial vulnerability. This high selectivity can mitigate off-target effects, however, it places evolutionary pressure on the pathogen to fortify the targeted vulnerability and thus become biochemical immune to the treatment. This arms race of medicinal chemists against microbial evolution must therefore be replaced with a more efficient and sustainable medical strategy, and one that ideally also avoids the persistent ecotoxicity that is observed with contemporary pharmaceuticals \cite{Thomas2001AntifoulingEffects,Niu2016RolesIrradiation,Winters1983ControlDesalination}.
+Antibiotic resistant infections are projected to exceed cancer in annual deaths, and cost $10^{13}~USD$ per year globally by mid-21$&\text{st}$ century \cite{ONeill2014AntimicrobialNations}. Methicillin-resistant \textit{Staphylococcus aureus} (MRSA) \cite{Baines2015ConvergentAureus,Song2011SpreadStudy,Borg2007PrevalenceCountries} and fluoroquinolone-resistant \textit{Salmonella} \cite{Moghnieh2018EpidemiologyLeague} are two worrisome examples of virulent pathogens that are developing resistance to the antibiotics that subdued them half of a century ago. Antimicrobial resistance (AMR) evolution can be slowed by reducing excessive and incomplete use of antibiotics for human illness and animal agriculture (which is globally the primary consumer of antibiotics \cite{VanBoeckel2017ReducingAnimals,Eggleton2020TheWorld}); however, AMR is the inevitable consequence of specific mechanisms of action with conventional antibiotics: e.g. $\beta$-lactam antibiotics selectively target the Penicillin binding protein \cite{Hartman1984Low-affinityAureus}. Highly selective antibiotics are advantageous for mitigating off-target effects, yet, this strategy applies a strong evolutionary pressure on the pathogen to fortify the targeted vulnerability and thus circumvent the treatment mechanism. The perpetual arms race of medicinal chemists against microbial evolution, which ensues from this antibioic strategy of specific treatment mechanisms, must be replaced with a more sustainable strategy.
 
 \subsection{Photodynamic inactivation}
 
-Photodynamic inactivation (PDI), which differs from photodynamic therapy (PDT) for cancer treatment \cite{Lange2019ComparisonLines} only in its application, offers an effective alternative for treating prokaryotic \cite{Hamblin2004PhotodynamicDisease} and viral \cite{Wigginton2010OxidationInactivation,Lebedeva2020TheViruses} pathogens. PDI describes a photochemical process where reactive oxygen species (ROSs) \cite{Zepp1992HydroxylReaction,Koppenol2001TheLater}, primarily singlet state oxygen ($^1\Delta_g$, the lowest excitation state of diatomic oxygen) \cite{Ergaieg2008InvolvementPorphyrin, Allen2004IntroductionSimulations, Henze2019Multi-scaleCheckpoint, Zaman2005ComputationalMatrices,Gillespie2007StochasticKinetics}, non-selectively oxidize biological substrate \cite{Choe2006MechanismsOxidation,Frankel1980LipidOxidation}. This mechanism enables PDI to simultaneously 1) avoid resistance evolution \cite{Tavares2010AntimicrobialTreatment,Lauro2002PhotoinactivationConjugates,Pedigo2009AbsenceTherapy}; 2) treat recalcitrant biofilms \cite{Beirao2014PhotodynamicPorphyrin,Ghorbanzadeh2020ModulationModel}, where the biofilm matrix is itself oxidized by $^1\Delta_g$; and 3) avoid ecological presistence, since $^1\Delta_g$ has only a $\approx 100 nm$ diffusion distance and a $\approx 10^{-6} s$ lifetime \cite{Moan1984TheOxygen, Moan1990OnTissues,Rodgers1982LifetimeMeasurements} in aqueous environments. The last quality encourages the use of PDI in wastewater treatment \cite{Kohn2007AssociationOxygen,Mostafa2013SingletMatter,Jimenez-Hernandez2006SolarSensitizers} and surfaces \cite{McCoy2014PhotodynamicControl} or industrial polymers \cite{Kim2003DesignProblem} where $^1\Delta_g$ won't leach into the environment or human consumables. 
+Photodynamic inactivation (PDI) offers an effective medical technique for killing pathogens: e.g. bacteria \cite{Hamblin2004PhotodynamicDisease} and viruses \cite{Wigginton2010OxidationInactivation,Lebedeva2020TheViruses}. PDI is a photochemical process that generates singlet state oxygen ($^1\Delta_g$) \cite{Ergaieg2008InvolvementPorphyrin, Allen2004IntroductionSimulations, Henze2019Multi-scaleCheckpoint, Zaman2005ComputationalMatrices,Gillespie2007StochasticKinetics} -- a reactive oxygen species (ROS) \cite{Zepp1992HydroxylReaction,Koppenol2001TheLater} -- which non-selectively oxidizes biological substrates \cite{Choe2006MechanismsOxidation,Frankel1980LipidOxidation} to the point of death. This mechanism enables PDI to a) avoid resistance evolution \cite{Tavares2010AntimicrobialTreatment,Lauro2002PhotoinactivationConjugates,Pedigo2009AbsenceTherapy}, because oxidation from $^1\Delta_g$ is too intense and rapid for adaptation of survivors; b) treat recalcitrant biofilms \cite{Ghorbanzadeh2020ModulationModel}, where, unlike conventional antibiotics, the extracellular polymeric substances (EPS) of the protective biofilm matrix is oxidized concomitantly with the targeted cells \cite{Beirao2014PhotodynamicPorphyrin} and thus the mechanism of action is not diffusion-limited; and c) minimize off-target effects, since $^1\Delta_g$ has high spatiotemporal localization \cite{Moan1984TheOxygen, Moan1990OnTissues,Rodgers1982LifetimeMeasurements}. The last quality enables the use of PDI in cancer treatment \cite{Lange2019ComparisonLines}, open systems such as wastewater \cite{Kohn2007AssociationOxygen,Mostafa2013SingletMatter,Jimenez-Hernandez2006SolarSensitizers}, hospital surfaces \cite{McCoy2014PhotodynamicControl}, industrial polymers \cite{Kim2003DesignProblem}, and directly on agricultural products \cite{Luksiene2013NovelPhotosensitization,Silva2018PhotodynamicStates}, where $^1\Delta_g$ won't leach into the environment \cite{Thomas2001AntifoulingEffects,Niu2016RolesIrradiation,Winters1983ControlDesalination} or human consumables. 
 
-The distinction between $^1\Delta_g$ and ground triplet state of diatomic oxygen ($^3\Sigma_g^-$) \cite{DeRosa2002PhotosensitizedApplications} is explained by their quantum multiplicities \cite{Fumi1953ElectronicMolecule}. The singlet state contains only paired electrons -- one for each up and down spins -- and is named after its multiplicity of $1$: from 
+The excited singlet state $^1\Delta_g$ oxygen is distinguished from the ground triplet state ($^3\Sigma_g^-$) oxygen \cite{DeRosa2002PhotosensitizedApplications} by its quantum numbers. The molecular singlet state contains only paired electrons -- i.e. one up spin electron for each down spin electron -- and is named after its multiplicity ($m$) \cite{Fumi1953ElectronicMolecule} of $1$: from 
 \begin{equation} \label{multiplicity}
-    multiplicity = 2(S)+1
+    m = 2(S)+1
 \end{equation}
-when $S=0$. The $S$ variable in \cref{multiplicity} describes the total angular momentum of the molecule -- the sum of electron spins, where up is $+\frac{1}{2}$ and down is $-\frac{1}{2}$ -- which in the case of a singlet molecule is 0 since the complete pairing of electrons necessitates that the quantities of up and down electrons are equivalent (Figure S1). The molecular triplet state, in contrast, contains two unpaired electrons that result in a multiplicity of $3$ from $S=1$ in \cref{multiplicity}. These unpaired electrons in $^3\Sigma_g^-$ increase shielding of the nuclear charges \cite{Katriel1972ARule} and consequently stabilize $^3\Sigma_g^-$ by $0.98$ eV \cite{Jockusch2008SingletExcitation} relative to $^1\Delta_g$ that lacks this shielding.
+when $S=0$. $S$ is the total angular momentum of the molecule -- the sum of electron spins, where up is $+\frac{1}{2}$ and down is $-\frac{1}{2}$ -- which, for a singlet molecule, is 0 since complete pairing necessitates equal quantities of up and down electrons (Figure S1). The molecular triplet state, in contrast, contains two unpaired electrons that result in a multiplicity of $3$ from $S=1$ in \cref{multiplicity}. These unpaired electrons in $^3\Sigma_g^-$ increase shielding of the nuclear charges \cite{Katriel1972ARule} and consequently stabilize $^3\Sigma_g^-$ by $0.98$ eV \cite{Jockusch2008SingletExcitation} relative to $^1\Delta_g$ that lacks this shielding. The latin symbols for these molecular states derive from the $^{m}\Lambda _{g/u}^{+/-}$ template of molecular information, where $g/u$ -- gerade (non-invertable) \& ungerade (invertable) -- denotes the invertability of the molecule with respect to an inversion center and $+/-$ denotes symmetry or anti-symmetry of the molecule, respectively. The base $\Lambda$ term describes the orbital angular momentum of the molecule, which is distinct from the total angular momentum $S$ by differentially weighting sub-orbitals, while following Hund's 2nd rule of distributing electrons amongst degenerate sub-orbitals to maximize the orbital angular momentum.
 
-The excitation of $^3\Sigma_g^-$ to $^1\Delta_g$ is regulated in PDI by photosensitizer catalysts (PSs). The PS advantageously 1) controls the timing, magnitude, and location of ROS generation, and 2) generates antimicrobial concentrations of $^1\Delta_g$ that would not occur by direct excitation from a photon ($hv$) $\ce{^3\Sigma_g^- ->[{hv}] ^1\Delta_g}$ \cite{Krasnovsky2012PhotochemicalEnvironment}, since the formal selection rules \cite{Bowen1936ForbiddenLines} describe that likely excitations are those which preserve the electronic state: i.e. $\ce{^3\Sigma_g^- ->[{hv}] ^3\Sigma_u^+}$. Indirect excitation could generate $^1\Delta_g$ after relaxation via an inter-system crossing $\left( \ce{^3\Sigma_g^- ->[{hv}] ^3\Sigma_u^+ ->[{intersystem~crossing}] ^1\Delta_g + h\nu} \right)$ \cite{Long2003SelectionOxygen}, nevertheless, the PS catalyst accelerates and augments $^3\Sigma_g^-$ generation \cite{You2018ChemicalOxygen,Schalk2008Near-infraredTetratolyl-porphyrins,Jockusch2008SingletExcitation}. 
-
-The PS mechanistically functions by first exciting from its ground-state PS ($\ce{^1PS}$) to an excited singlet state ($\ce{^1PS^*}$), according to the selection rules, and then relaxing through intersystem crossing, instead of fluorescing \cite{Kessel1982DeterminantsSpectra}, to an excited triplet state ($\ce{^3PS}$),
+PDI consists of a few steps. First, the ground singlet state photosensitizer (PS) catalyst ($^1PS$) photonically excites $\ce{^1PS ->[h\nu] ^1PS^*}$ following the formal selection rules of electronic excitation \cite{Bowen1936ForbiddenLines}, where it likely excitations preserve the electronic spin state: e.g. singlet to singlet. Second, the excited $\ce{^1PS^*}$ then relaxes through intersystem crossing, instead of fluorescing \cite{Kessel1982DeterminantsSpectra}, to a more stable triplet state ($\ce{^3PS}$),
 \begin{equation} \label{ps_excitation_steps}
-    \ce{^1PS <=>[{excitation}][{fluorescence}] ^1PS^* ->[{intersystem-crossing}] ^3PS}~.
+    \ce{^1PS <=>[{excitation}][{fluorescence}] ^1PS^* ->[{intersystem-crossing}] ^3PS}
 \end{equation}
-The $\ce{^3PS}$ then transfers its energy to $^3\Sigma_g^-$, instead of phosphorescence \cite{Mcrae1958Enhancement6}, and thereby generates $^1\Delta_g$ while regenerating the ground-state $\ce{^1PS}$ catalyst,
+that transfers energy to $^3\Sigma_g^-$, instead of phosphorescence \cite{Mcrae1958Enhancement6}, to generate $^1\Delta_g$ while regenerating the ground-state $\ce{^1PS}$ catalyst,
 \begin{equation} \label{excited_ps_steps}
-    \ce{^1 PS <-[{phosphorescence}] ^3 PS ->[^3\Sigma_g^-] ^1 PS + ^1\Delta_g}
+    \ce{^1 PS <-[{phosphorescence}] ^3 PS ->[^3\Sigma_g^-] ^1 PS + ^1\Delta_g}~.
 \end{equation}
-The combined efficiency of \cref{ps_excitation_steps,excited_ps_steps} is encapsulated in a quantum yield of $^1\Delta_g$ production \cite{Bakalova2004QuantumPhotosensitizers} ($0\le \Phi_{\Delta}\le 1 ~;~ \frac{^1\Delta_g ~molecules ~produced}{photon ~absorbed}$). The $\ce{^3PS}$ and $^1\Delta_g$ excited states engage in energy transfers instead of $\ce{^1PS^*}$ and $\ce{^3\Sigma_u^+}$ since the former have longer lifetimes as a consequence of fluorescence being more favorable than phosphorescence. The final step of PDI describes oxidation of biological substrates via $^1\Delta_g$ through Type II oxidation mechanisms, which are concerted Schenck \cite{Prein1996TheApplications} or Alder-ene \cite{Fernandez-torquemada2012DispersionPlants} reactions that produce organic peroxides \cite{Foote1965ChemistrySelectivity}, as opposed to Type I mechanisms \cite{Bolland1949KineticsOxidation,Farmer1943TheRubber,Grynova2011RevisingAutooxidation} that only affect radical substrates \cite{Litwinienko1999DifferentialEsters}. The Type II mechanism most readily affects allylic positions of unsaturated molecules \cite{Ellison1996ThermochemistryIons,Sehon1950TheRadical}, although, saturated molecules, like those in bacterial phospholipids \cite{ODonnell1985NumericalStaphylococci}, are also oxidized by $^1\Delta_g$. 
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width = \textwidth]{images/PDIpy/background/jablonski_diagram.png}
-    \caption{
-        A qualitative Jablonski energy diagram of photosensitization. The initial electronic absorption of a photon ($h\nu$) by $^3\Sigma_g^-$ forms a $^3\Sigma_u^+$ molecule, following the selection rules of excitation. This excited $\ce{O2}$ then either fluoresces or relaxes through intersystem-crossing into $^1\Delta_g$, which subsequently either phosphoresces or oxidizes organic substrate to form a peroxide.
-    }
-    \label{jablonski_diagram}
-\end{figure}
+The $\ce{^3PS}$ and $^1\Delta_g$ excited states engage in energy transfers instead of $\ce{^1PS^*}$ and $\ce{^3\Sigma_u^+}$ since the former have longer lifetimes as a consequence of fluorescence being more favorable than phosphorescence. Finally, the $^1\Delta_g$ from \cref{excited_ps_steps} oxidizes biological substrates through Type II oxidation mechanisms, which are concerted Schenck \cite{Prein1996TheApplications} or ene \cite{Adam1996DiastereoselectiveComparison} reactions that produce organic peroxides \cite{Foote1965ChemistrySelectivity}, rather than Type I mechanisms \cite{Bolland1949KineticsOxidation,Farmer1943TheRubber,Grynova2011RevisingAutooxidation} that only affect radical substrates \cite{Litwinienko1999DifferentialEsters}. The Type II mechanism importantly oxidizes both saturated and unsaturated fatty acid chains, which comprise membrane phospholipids \cite{ODonnell1985NumericalStaphylococci}.
 
 \subsubsection{Photosensitizer}
-The efficiency and efficacy of PDI is primarily dependent upon the chemical structure of the photosensitizer catalyst (PS), notwithstanding minor influence of the chemical conditions \cite{Kruk1998PhotophysicsLuminescence,Kullmann2012UltrafastBisporphyrin}. Two primary inefficiencies of PSs that lessen the $\Phi_{\Delta}$ are its propensities to relax through fluorescence or phosphorescence, in Figure \ref{jablonski_diagram}, and to photobleach, where irradiation and $^1\Delta_g$ irreversibly compromise molecular absorptivity \cite{Bonnett2010ChemInformTherapy,Wasser1973TheMetallochlorins}. The efficacy of PDI is influenced by the PS functionality and charge, which should 1) optimize its association with the targeted cells \cite{VanDerWal1997DeterminationBacteria,Dickson1989CellSurfaces}; 2) minimize off-target oxidation \cite{Lambrechts2005PhotodynamicMice} and host toxicities \cite{Quishida2016PhotodynamicLight} in medical applications; and 3) be amenable to permanent surface attachment in a manner that retains material properties \cite{McCoy2014PhotodynamicControl} in material applications of PDI \cite{Peddinti2018PhotodynamicThreat,Gottenbos2001AntimicrobialBacteria}. 
+The PS is the essential component of PDI. The PS advantageously a) introduces control in the timing, magnitude, and location of $^1\Delta_g$ generation, as a counter-balance to the non-selective mechanism of action; and b) generates antimicrobial concentrations of $^1\Delta_g$ that would not occur by direct excitation of ambient oxygen from a photon ($hv$) $\ce{^3\Sigma_g^- ->[{hv}] ^1\Delta_g}$ \cite{Krasnovsky2012PhotochemicalEnvironment}, since this excitation is spin forbidden. Indirect photonic excitation can generate $^1\Delta_g$ $\left( \ce{^3\Sigma_g^- ->[{hv}] ^3\Sigma_u^+ ->[{intersystem~crossing}] ^1\Delta_g + energy} \right)$ \cite{Long2003SelectionOxygen}, nevertheless, the PS catalyst accelerates and augments $^3\Delta_g^-$ generation \cite{You2018ChemicalOxygen,Schalk2008Near-infraredTetratolyl-porphyrins,Jockusch2008SingletExcitation}. The efficiency of a PS is defined by its quantum yield ($0\le \Phi_{\Delta}\le 1 ~;~ \frac{^1\Delta_g ~molecules ~produced}{photon ~absorbed}$), which encapsulates the probably of \cref{ps_excitation_steps,excited_ps_steps} \cite{Bakalova2004QuantumPhotosensitizers}. The $\Phi_{\Delta}$ is inversely proportional with the likelihood of fluorescence and phosphorescence relaxations, in Figure S3, and photobleaching, where photons and/or $^1\Delta_g$ irreversibly compromise molecular absorptivity \cite{Bonnett2010ChemInformTherapy,Wasser1973TheMetallochlorins}
 
-The cellular permeability of a PS further determines which biological entities are oxidized during PDI. Impermeable PSs generally oxidize the phospholipid fatty acids of the cytoplasmic membrane \cite{Specht1990DepolarizationAction,Ehrenberg1993ElectricAlterations} in Figure \ref{schenck_mechanism} instead of cytoplasmic contents \cite{Maisch2004AntibacterialDermatology}. This mechanism manifests in cell death through lysis \cite{Sahu2009AtomicColi,Bertoloni1987RoleCells} and generally affects gram-positive bacteria more than gram-negative bacteria \cite{Lauro2002PhotoinactivationConjugates,Merchat1996Meso-substitutedBacteria} since the latter possess a superficial lipopolysaccharide layer that protects the cytoplasmic membrane. Permeable PSs, by contrast, can penetrate a cell and thus generate $^1\Delta_g$ within the cytoplasm where cytoplasmic chemicals \cite{Bagchi1979RoleAcriflavine} such as guanine nucleotides \cite{Prat1997Determination9,Devasagayam1991FormationOxygen} are fatally oxidized. This mechanism is more effective with prokaryotes than eukaryotes \cite{Quishida2016PhotodynamicLight}, since the latter have a nuclear membrane that protects DNA, particularly guanine, from oxidation \cite{Pereira2013PhotodynamicVitro}.
+The chemical structure of PS, in addition to the environmental conditions \cite{Kruk1998PhotophysicsLuminescence,Kullmann2012UltrafastBisporphyrin}, is a primary influence on $\Phi_{\Delta}$. The molecular functionality and charge, for example, can a) optimize its association with the targeted cells \cite{VanDerWal1997DeterminationBacteria,Dickson1989CellSurfaces}, which optimizes efficacy while minimizing off-target oxidation \cite{Lambrechts2005PhotodynamicMice} and host toxicities \cite{Quishida2016PhotodynamicLight}; and b) possibly be amenable to permanent surface attachment \cite{Ringot2009Porphyrin-graftedReaction} while retaining material properties \cite{McCoy2014PhotodynamicControl} in material applications of PDI \cite{Peddinti2018PhotodynamicThreat,Gottenbos2001AntimicrobialBacteria}. The PS molecular properties further determine which biological substrates are oxidized. PSs that are impermeable to the cytoplasmic membrane, or are bound to a material surface, generally oxidize the cytoplasmic membrane \cite{Specht1990DepolarizationAction,Ehrenberg1993ElectricAlterations} in Figure S4 instead of cytoplasmic contents \cite{Maisch2004AntibacterialDermatology}, which causes lysis \cite{Sahu2009AtomicColi,Bertoloni1987RoleCells} and generally affects gram-positive bacteria more than gram-negative bacteria \cite{Lauro2002PhotoinactivationConjugates,Merchat1996Meso-substitutedBacteria} since the latter possess a superficial lipopolysaccharide layer that protects the cytoplasmic membrane. Permeable PSs, by contrast, can generate $^1\Delta_g$ within the cytoplasm and thus cytoplasmic chemicals \cite{Bagchi1979RoleAcriflavine} such as guanine nucleotides \cite{Prat1997Determination9,Devasagayam1991FormationOxygen} are fatally oxidized, which is more effective with prokaryotes than eukaryotes \cite{Quishida2016PhotodynamicLight} since the latter have a nuclear membrane that protects DNA, particularly guanine, from oxidation \cite{Pereira2013PhotodynamicVitro}.
 
-A narrow range of chemicals meet these criteria of an ideal PS. Semiconductors \cite{Nelson2002PhotoconductivityDioxide,Peiro2006PhotochemicalPreparations,Linsebigler1995PhotocatalysisResults}, and some amino acid residues \cite{Lippincott-schwartz2003PhotobleachingTechniques,Jin1995PhotolysisSolution}, can electrocatalytically generate $^1\Delta_g$; however, these molecules are inefficient and/or impractical, particularly for medical applications. The most efficacious PS in nature is chlorophyll \cite{Ramel2012ChemicalPlants}, which is an organometallic porphyrinoid (Figure \ref{zinc_porphyrin}) that evolution has tuned for low rates of photobleaching and absorption of visible light -- specifically blue-violet radiation \cite{Mtangi2017ControlSplitting} via the Soret absorption band \cite{Carre1999FungicidalCerevisiae,Pereira2014InfluencePorphyrin,Ashkenazi2003PhotodynamicBacteria,Moan1986PorphyrinShGroups,Nitzan1992InactivationPorphyrins,Durantini2006PhotodynamicBacteria,Salmon-Divon2004MechanisticTetra-mesoN-methylpyridylporphine} and green-orange radiation \cite{Bertoloni2000PhotosensitizingCells} via the Q absorption band \cite{Bonnett1999PhotobleachingStudy,Jori2006PhotodynamicApplications,Gad2004TargetedMice,Zhao2019Porphyrin-basedAbsorption}. Chlorophyll, however, has not evolved traits that optimize its association with cellular targets or its compatibility with material surfaces; therefore, synthetic porphyrins \cite{Orenstein1997TheInfections,Beirao2014PhotodynamicPorphyrin,Merchat1996StudiesPorphyrins} that emulate the successful conjugated structure \cite{Huang2008Porphyrin-dithienothiopheneCells} of chlorophyll yet introduce other metal centers \cite{Mosinger1997QuantumPorphine} and functional handles  \cite{Hirao1999TheoreticalDerivatives,Wu2014BODIPY-basedSolution,Chacon1988SingletArachidonic} (e.g. Figure \ref{zinc_porphyrin}) that improve its utility in PDI \cite{Jager2016QScales,Karolczak2004PhotophysicalTetraphenylporphyrin,Mathai2007SingletTherapy} is an appealing direction for PDI research. 
+The most efficacious PS in nature is chlorophyll \cite{Ramel2012ChemicalPlants}, which is an organometallic porphyrinoid (Figure S2) that evolution has tuned for low rates of photobleaching and absorption of visible light -- specifically blue-violet \cite{Mtangi2017ControlSplitting} via the Soret absorption band \cite{Carre1999FungicidalCerevisiae,Pereira2014InfluencePorphyrin,Ashkenazi2003PhotodynamicBacteria,Moan1986PorphyrinShGroups,Nitzan1992InactivationPorphyrins,Durantini2006PhotodynamicBacteria,Salmon-Divon2004MechanisticTetra-mesoN-methylpyridylporphine} and green-orange \cite{Bertoloni2000PhotosensitizingCells} via the Q absorption band \cite{Bonnett1999PhotobleachingStudy,Jori2006PhotodynamicApplications,Gad2004TargetedMice,Zhao2019Porphyrin-basedAbsorption}. Chlorophyll, however, has not evolved molecular functionality that optimizes its efficacy in PDI systems; therefore, synthetic porphyrins \cite{Orenstein1997TheInfections,Beirao2014PhotodynamicPorphyrin,Merchat1996StudiesPorphyrins} that emulate the efficient conjugated structure \cite{Huang2008Porphyrin-dithienothiopheneCells} of chlorophyll, yet introduce other metal centers \cite{Mosinger1997QuantumPorphine} and functional handles  \cite{Hirao1999TheoreticalDerivatives,Wu2014BODIPY-basedSolution,Chacon1988SingletArachidonic} (e.g. Figure S2) that improve its utility for PDI \cite{Jager2016QScales,Karolczak2004PhotophysicalTetraphenylporphyrin,Mathai2007SingletTherapy} -- such as enabling surface attachment, possessing a desirable charge or permeability, or perhaps being tuned for a specific wavelength -- are an appealing direction for PDI research. 
+
+\subsection{PDI modeling}
+Mechanistic models of PDI systems -- that capture the chemistry and physiology of PDI -- are unfortunately scarce and insufficiently comprehensive. The most prevalent form of PDI models is the logistic survival curve \cite{Sabino2019InactivationTherapy,Buchovec2009NovelPhotosensitization,Dementavicius2016ApplicationPhotosensitization, Aponiene2015ReductionTreatments, Vaitonis2010Led-basedBacteria}
+\begin{equation} \label{logistic_model}
+    log\left( \frac{N(t)}{N_0} \right) = N_r\left( 1- \frac{1}{1+\left( \frac{t}{\tau} \right)^{P}} \right)
+\end{equation}
+where $N_0$ and $N$ are the number of organisms at times zero and $t$, respectively; $N_r$ is the number of resistant organisms to the treatment method; $P$ is the length of the shoulder curve in the sigmoidal plot; and $\tau$ is the suddenness at which inactivation occurs. Brasel et al. \cite{Brasel2020AnAgalactiae} applied \cref{logistic_model} -- with third-order polynomials that describe $N_r$, $\tau$, and $P$ as a functions of irradiation intensity $\frac{mW}{cm^2}$ and exposure time -- however, the few variable conditions of this logistic model do not permit the investigator to explore the space of possible PDI systems: e.g. variability in the emission spectra of the light source \cite{Brancaleon2002LaserTherapy}, the biochemical profile of the targeted organism, or the efficacy of the simulated PS. Santos et al. \cite{Santos2020ApplicationAureus} offered a response surface model of empirical second-order polynomials to determine inactivation as a function of PS concentration and irradiation time; however, the calibration of this model for a single PS (Eosin Y) and LED light source hinders its applicability to the numerous other combinations in effective PDI systems.
+
+We therefore developed a holistic PDI model that can guide biologists and chemists through the design of optimal systems and PSs, respectively. This model captures the processes of Figure \ref{conceptual_model} through a series of reactions that represent a) the photoexcitation of the photosensitizer; b) the relay of excitation energy to ambient oxygen to form $^1\Delta_g$ ; c) the oxidation of biological material until lysis; and d) continuous growth of the simulated species. Notable variables in our model include: chemical constituency of the cytoplasmic membrane; concentration and absorptivity of the photosensitizer; emission spectra and intensity of the light source; and dimensions of the simulated space. This model constructs a kinetic rate law, from literature measurements, for each of these processes and parameterizes the aforementioned variables. The model yields predictions of membrane oxidation that are converted into predictions of inactivation through a calibrated parameter -- which is the threshold of membrane oxidation that causes lysis -- that derives from training our model with published PDI data. This model is moreover encapsulated into a Python API (PDIpy) in Figure \ref{workflow}, which allows investigators to explore a continuum of values for numerous simulation parameters and to graphically interpret the simulation results (see the PDIpy documentation). We exemplify the model through replicating experimental studies and conducting sensitivity analyses with PDIpy. We expect that this original model, and its implementation as an open-source API, will foster experimental progress towards developing practical PDI systems that combat the medical crisis of antibiotic resistance. 
 
 \begin{figure}
     \centering
-    \includegraphics[width = \textwidth]{images/PDIpy/background/chlorophyll.png} \\
-    \midrule
-    \includegraphics[width = 0.5\textwidth]{images/PDIpy/background/zinc_porphyrin.png}
+    \includegraphics[width = \textwidth]{images/PDIpy/background/model.png}
     \caption{
-        The chemical structure of porphyrinoid chlorophyll (top) juxtaposed with the core motif of a synthetic porphyrin analogue (bottom).
+        The conceptual model of PDI that is captured by our kinetic system. \textbf{Step a} is the  excitation of a photosensitizer (PS) via incident light at the wavelength to which the PS is tuned. \textbf{Step b} is the transfer of excitation energy from the excited PS to ambient oxygen, which reforms the PS catalyst and generates singlet oxygen. \textbf{Step c} is the oxidation of membrane phospholipids via singlet oxygen, which rapidly causes membrane lysis and subsequently cell death. \textbf{Step d} is the continuous growth of surviving organisms. Each of these processes are represented by chemical reactions and rate laws in our kinetic model.
     }
-    \label{zinc_porphyrin}
+    \label{conceptual_model}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}
     \centering
-    \includegraphics[width = \textwidth]{images/PDIpy/background/BCFA_schenck_oxidation_2.png}
+    \includegraphics[width = 0.7\textwidth]{images/PDIpy/background/workflow_2.png}
     \caption{
-         The reaction mechanisms of Type II oxidation and subsequent decompositions. Step (1) depicts the concerted \cite{Foote1968PhotosensitizedOxygen} Schenck reaction. Step (2) depicts the homolytic cleavage of the hydroperoxide bond to form $\ce{OH^.}$ and an oxy radical that may enter autoxidation mechanisms. Step (3) depicts radical propagation via hydrogen abstraction to form another radical substrate and an alcohol byproduct. Step (4) is a concerted Russell reaction \cite{Russell1957Deuterium-isotopeRadicals,Howard1968TheMechanism} between two peroxides that forms a $\ce{H2O2}$, an $\alpha,\beta$-ketone, and an alcohol. The reactions of Steps (2-4) sample the wide array of possible decompositions.
+        The programmatic workflow of PDIpy that implements our kinetic model. \textbf{Step a} describes the processing and substitution of simulation parameters -- categorically pertaining to the organism, light, and photosensitizer -- into the rate laws of our kinetic model. \textbf{Step b} executes the populated kinetic model through Tellurium, where concentration changes are calculated via rate laws and concentrations are updated with each timestep. The simulation yields predicted fractions of oxidized membrane fatty acids and excited PSs, which are converted into predictions of inactivation via a calibrated parameter. \textbf{Step c} graphically depicts the simulation results with the user-defined specifications. \textbf{Step d} investigates the two-dimensional data of predicted inactivation over time by slicing through either variable via a built-in function.
     }
-    \label{schenck_mechanism}
+    \label{workflow}
 \end{figure}
-
-\subsection{PDI modeling}
-Computational models of PDI that can guide experimentalists, biologists and chemists alike, through the design of more efficacious PSs and PDI systems unfortunately are scarce. Santos et al. \cite{Santos2020ApplicationAureus} developed an accurate second-order polynomial to mathematically describe the inactivation of \textit{S. aureus} as a function of time at a particular wavelength and PS concentration, however, the model is bound to a narrow range of conditions, and does not permit the investigator to explore different parameters such as PS characteristics. Brasel et al. \cite{Brasel2020AnAgalactiae} developed a sigmoidal logistic model to assess the sensitivity of PDI inactivation to incident irradiance $\frac{mW}{cm^2}$ and exposure time; however, the model likewise does not permit investigations of alternative PDI systems. Finally, Sabino et al. \cite{Sabino2019InactivationTherapy} developed a Weibull power-law function from fitted inactivation data to practically predict lethal doses and the tolerance factor of a PDI system; yet, the mathematical model is limited in scope and does not describe the fundamental chemistry of PDI. 
-
-We therefore developed a mechanistically resolved kinetic model of PDI for an impermeable PS and encapsulated into a Python API (PDIpy) that allow investigators to efficiently explore a continuum of values for numerous parameters. The means of editing and customizing the extensive list of parameters, and understanding the default values, is detailed in the API documentation. PDIpy uses Tellurium \cite{Choi2018Tellurium:Biology} to concisely construct SBML \cite{Keating2020Models}, SED-ML \cite{Waltemath2011ReproducibleLanguage}, and COMBINE OMEX \cite{Bergmann2014COMBINEProject} descriptions of the simulations, which support transparency and reproducibility. The logistic (sigmoidal) Hill equation is then fitted to simulation predictions of cytoplasmic oxidation to systematically construct the inactivation plot based upon the oxidation predictions. We exemplify the model through replicating experimental studies and conducting a sensitivity analysis of light intensity. We expect that the open-source project will foster experimental progress in a resource efficient manner, and will inspire computational biologists to refine tools that can expedite the scientific response to the looming medical crisis of antibiotic resistance. 
 
 \section{Methods} \label{methods}
-\subsection{Conceptual model}
-PDIpy conceptually represents an experimental PDI system with a coccus (spheroid) bacterium like \textit{S. aureus}. The program accepts parameters for each aspect of PDI: the light source and incident intensity; the PS absorptivity, structural dimensions, and $\frac{mol}{vol}$ or $\frac{mol}{area}$ concentration; the bacterial specie, membrane composition, and $\frac{CFU}{mL}$ for planktonic experiments; the solution dimensions; and kinetic constants for the PDI reactions. Default values for many of these parameters supplement user-defined parameters.
+\subsection*{Conceptual model}
+Our model represents an experimental PDI system with i) a porphyrin PS, ii) a coccus (spheroid) bacteria such as \textit{S. aureus}, iii) a constant light source, and iv) an aqueous solution that contains a steady-state of dissolved oxygen. The bacteria are represented by fatty acid chains, which our model assumes is the cite of membrane oxidation and hence is the only pertinent bacterial aspect for extracellular PDI. Biofilms, for simulations of sessile systems, are represented as a combination of fatty acid chains (bacteria) and extracellular polymeric substances (EPS) in a predefined ratio for the simulated species, which our model assumes is the cite of oxidation in the biofilm matrix. The model calculates the interaction of $^1\Delta_g$ within the membrane volume or the volume of EPS, since this is the location of PDI inactivation.
 
-\subsection{Kinetic reactions}
-Our model is predicated upon a set of three chemical processes that embody the essence of PDI. 1) A photoelectric interaction \cite{Wheaton2009PhotoelectricEffect} from \cref{ps_excitation_steps} occurs after $\ce{^1PS}$ is struck by a photon ($h\nu$) and undergoes intersystem crossing per to form $\ce{^3PS}$. 2) An energy transfer in \cref{excited_ps_steps} occurs from $\ce{^3PS}$ to $^3\Sigma_g^-$. 3) The $^1\Delta_g$ oxidizes biological substrates, which includes both cytoplasmic phosholipids and biofilm polymeric substances, or it irreversibly disrupts PS absorptivity through photobleaching. A complete description of this kinetic system is represented in Table \ref{reactions_table}, and each of the reactions are each detailed in the following sub-sections.
+Each aspect of this model is represented with a variable: i.e. the PS absorptivity (which can be approximated from molecular dimensions), and the $\frac{mol}{vol}$ or $\frac{mol}{area}$ concentration; the cellular state (planktonic or sessile), and the $\frac{CFU}{mL}$ for planktonic experiments; and kinetic constants for some PDI reactions. These variables are populated in $8$ chemical reactions that can be categorized into $4$ general processes: a) photoexcitation and photobleaching, $\ce{^1PS ->[h\nu] ^3PS}$ in \cref{ps_excitation_steps}; b) energy transfer, $\ce{^3PS ->[energy] ^3\Sigma_g^-}$ in \cref{excited_ps_steps}; c) the oxidation of biological substrates; and d) growth of the pathogen. A complete description of these reactions and their respective rate laws is represented in Table \ref{reactions_table}. Each reaction is each detailed in the following sub-sections.
 
-\subsubsection{User inputs}
-The PDIpy API accepts a variety of parameters that allow the user to customize almost every aspect of the PDI system. These parameters are provided through either a dictionary argument in the \pyobject{define\_conditions} function, or through a JSON parameter file for each category of parameters -- e.g. light, PS, bacterium, and solution space -- that more reproducibly and transparently describes the simulated system. The complete list of accepted parameters and formats are detailed in the PDIpy documentation (\url{https://github.com/freiburgermsu/PDIpy/blob/main/README.rst}).
-
-\begin{table}[]
+\begin{table}
     \centering
-    \begin{tabular}{c|c}
-        \textbf{Name} & \textbf{Reaction} \\
+    \begin{tabular}{c|c|c}
+        \textbf{Name} & \textbf{Reaction} & \textbf{Rate law} \\
         \toprule
-        Photoexcitation & \ce{^1PS <=> ^3PS} \\
-        Photobleaching & \ce{^1PS + ^1\Sigma_g -> ^1PS_{bleached}} \\
-        Energy transfer & \ce{^3PS + ^3\Sigma_g^- -> ^1PS + ^1\Delta_g} \\
-        Phosphorescence & \ce{^1\Delta_g -> ^3\Sigma_g^-} \\
-        Membrane oxidation & \ce{^1\Delta_g + FA -> FA-OOH} \\
-        EPS oxidation & \ce{^1\Delta_g + EPS -> EPS-OOH} \\
+        Photoexcitation & \ce{^1PS <=>[k_{ex}][k_f] ^3PS} & $\frac{d[\ce{^3PS}]}{dt} = k_{ex} * \frac{photons_{PS}}{photons_{total}} * \Phi_{ex}*[\ce{^1PS}] - k_{f}*[\ce{^3PS}]$\\ \midrule
+        Energy transfer & \ce{^3PS + ^3\Sigma_g^- -> ^1PS + ^1\Delta_g} & $\frac{d[^1\Delta_g]}{dt} = k_{transfer}*\Phi_{transfer}*[^3PS]*[^3\Sigma_g^-]$\\ \midrule
+        Photobleaching & \ce{^1PS + ^1\Delta_g -> ^1PS_{bleached}} & $\frac{d[\ce{^1PS_{bleached}}]}{dt} = k_{bleaching} * [\ce{^1PS}]*[^1\Delta_g]$\\ \midrule
+        Phosphorescence & \ce{^1\Delta_g -> ^3\Sigma_g^-} & $\frac{d[^3\Sigma_g^-]}{dt} = k_{phosphorescence}*[^1\Delta_g]$\\ \midrule
+        Membrane oxidation & \ce{^1\Delta_g + FA -> FA-OOH} & $\frac{d[FA-OOH]}{dt} = k_{fa}*[^1\Delta_g]*[FA]$\\ \midrule
+        EPS oxidation & \ce{^1\Delta_g + EPS -> EPS-OOH} & $\frac{d[EPS-OOH]}{dt} = k_{EPS_{oxidation}}*[^1\Delta_g]$\\ \midrule
+        Reproduction & \ce{->FA} & $\frac{d[FA]}{dt} = k_{doubling}*[FA]$ \\ \bottomrule
     \end{tabular}
     \caption{
-        Each chemical reaction of the PDI kinetic model is presented. These reactions are individually detailed in section \ref{methods}.
+        All chemical reactions of the PDI kinetic model. These reactions are individually detailed in the Methods Section \ref{methods}.
     }
     \label{reactions_table}
 \end{table}
 
-\subsubsection{Photoelectric}
+\subsubsection{Photoelectric reactions}
 \paragraph{PS excitation}
-PDI begins with the excitation of the PS. This occurs as the combined result of an incident photon i) entering the aqueous solution, ii) striking a PS, and then iii) exciting an electron of a PS. This sequence is encapsulated in the kinetic expression
+PDI begins with the excitation of the PS via an incident photon. This occurs as the combined result of a photon i) entering the aqueous solution, ii) striking a PS, and then iii) exciting an electron in that PS. This sequence is encapsulated by the kinetic expression
 \begin{multline} \label{ps_excitation_kinetics}
-    \frac{d[\ce{^3PS}]}{dt} =  k_{excitation}*\frac{photons_{PS}}{photons_{total}} *\Phi_{excitation}*[\ce{^1PS}] - k_{fluorescence}*[\ce{^3PS}]~. 
+    \frac{d[\ce{^3PS}]}{dt} =  k_{ex}*\frac{photons_{PS}}{photons_{total}} \\ 
+    *\Phi_{ex}*[\ce{^1PS}] - k_{f}*[\ce{^3PS}]~. 
 \end{multline}
-The $k_{excitation}$ \& $k_{fluorescence}$ rate constants are estimated as the inverse of the rise and decay times for the selected PS, respectively. The approximate rise time for a porphyrin PS is $50 fs$, which is consistent with estimates of $<100 fs$ \cite{Andersson1999PhotoinducedState} and $60-90 fs$ in ethanol solvent \cite{Gurzadyan1998Time-resolvedZn-tetraphenylporphyrin} which elongates the lifetime of excited molecules relative to water. The decay time, as the S2 fluorescence \cite{Akimoto1999UltrafastPorphyrins}, and $\Phi_{excitation}$ ($\frac{PS excited}{photon absorbed}$) are approximated for a porphyrin PS as $1.5 ns$ and $\approx 0.7$ \cite{Krasnovsky2012PhotochemicalEnvironment}, respectively. The $\frac{photons_{PS}}{photons_{total}}$ \cite{Brasel2020AnAgalactiae}, which is the proportion of photons in the solution that strike a photosensitizer \cite{Santos2020ApplicationAureus}. This can be either measured as an absorbance at each wavelength \cite{Gerola2012ChemicalPhotobleaching} or calculated from the following series of steps and approximations. 1) The reported intensity of incident light from the respective light source -- i.e. irradiance ($\frac{mW}{cm^2}$), lux ($\frac{lumen}{m^2}$), or lumens (lumens) -- is converted into $watts_{incident}$ ($\frac{J}{s}$). 2) This incident wattage is attenuated by the proportion of the emission spectrum $light_{incident}$ that resides within the excitation spectrum of the parameterized PS $light_{excitation}$, 
-\begin{equation}
-    watt_{excitation} = \frac{light_{excitation}}{light_{incident}}*watts_{incident}.
-\end{equation}
-3) The $watt_{excitation}$ is then used to calculate the moles of incident photons that strike photosensitizers per timestep 
-\begin{multline} \label{photons_per_second}
-    \frac{photons_{PS}}{timestep}=\frac{<h\nu_{excitation}>}{h*c}*watts_{excitation} \\
-    *\frac{second}{timestep}*reflection*scattering*\frac{1 mole}{N_A}*\frac{vol_{PS}}{vol_{total}},
-\end{multline}
-where $reflection \approx 96 \%$ and represents the proportion of incident photons that penetrate an aqueous solution \cite{Gross1993SingletLiposomes}; and $scattering$  
-\begin{equation}
-    \frac{I_z}{I_0} = e^{-k*z}~,
-\end{equation}
-represents the proportion of light $\frac{I_z}{I_0}$ that reaches a specified depth $z$ \cite{RobertW.1973TheSea}, where $k$ is the attenuation coefficient that is $\approx 0.04~(\frac{1}{m})$ \cite{Lorenzen1972ExtinctionPhytoplankton} for clear water. The $\frac{vol_{PS}}{vol_{total}}$ represents the volume proportion of the PS ($vol_{PS}$) -- calculated as the product of the quantity of PS molecules and the volume per molecule per its structure -- to the total volume of the solution in which the PS resides ($vol_{total}$). The average excitation wavelength of the PS ($<h\nu_{excitation}>$) is calculated as the weighted average of the Soret and Q excitation bands, in proportion to their relative contribution in generating $^1\Delta_g$ \cite{Nitzan2001PhotoinactivationWavelengths,Hoenes2020PhotoinactivationWavelength}, since this averaged wavelength simultaneously embodies contributions of both excitation bands. The resultant $\frac{photons_{PS}}{timestep}$ from \cref{photons_per_second} is then divided by the $\frac{photons_{total}}{timestep}$ to complete the kinetic expression in \cref{ps_excitation_kinetics} that calculates the excitation of PS in each timestep. 
+The $k_{ex}$ \& $k_{f}$ rate constants are estimated as the inverse of the rise and decay times for the selected PS, respectively. The rise time for a porphyrin PS is approximated as $50 fs$ based upon estimates of $<100 fs$ \cite{Andersson1999PhotoinducedState} and $[60,90]~ fs$ in ethanol solvent \cite{Gurzadyan1998Time-resolvedZn-tetraphenylporphyrin} that elongates the lifetime of excited molecules relative to water. The decay time, from the S2 fluorescence \cite{Akimoto1999UltrafastPorphyrins}, and $\Phi_{ex}$ ($\frac{PS excited}{photon absorbed}$) are approximated for a porphyrin PS to be $1.5 ns$ and $\approx 0.7$ \cite{Krasnovsky2012PhotochemicalEnvironment}, respectively. The $\frac{photons_{PS}}{photons_{total}}$ \cite{Brasel2020AnAgalactiae}, which is the proportion of photons in the solution that strike a photosensitizer \cite{Santos2020ApplicationAureus}, can derive from either emission and absorption spectra of the incident light and the PS \cite{Gerola2012ChemicalPhotobleaching}, respectively, or the series of steps and approximations that are articulated in the Excitation Proportion section of the Supporting Information. The $[\ce{^1PS}]$ is finally provided in either molar or $\frac{mg}{area}$, where the latter unit for surface-bound PSs is converted into an effective molar of the PS in the volume within which the surface-bound PS resides immediately adjacent to the substratum surface. 
 
 \paragraph{Photobleaching}
-The collision of a PS and a photon, instead of resulting in excitation, may disrupt the conjugated PS system and prevent further excitation. The reaction may be either oxygen independent, first-order, reaction \cite{Bonnett1999PhotobleachingStudy,Mang1987PhotobleachingTherapy} or a oxygen dependent, second-order, reaction 
+A PS may lose its absorptivity either by experiencing an irreversible rearrangement after collision with a photon -- which is described by an oxygen independent, first-order, reaction \cite{Bonnett1999PhotobleachingStudy,Mang1987PhotobleachingTherapy} -- or by being oxidized by $^1\Delta_g$ -- which is described by an oxygen dependent, second-order, reaction 
 \begin{equation}
     \ce{^3PS + ^1\Delta_g ->[h\nu] PS-OOH}~.
 \end{equation}
-The second-order reaction is purported to be more consequential in measured systems, thus, we implemented its kinetic expression 
+We developed a rate law 
 \begin{equation} \label{bleaching_kinetics}
     \frac{d[\ce{^1PS_{bleached}}]}{dt} = k_{bleaching}*[\ce{^1PS}]*[^1\Delta_g]~,
 \end{equation}
-where the $k_{bleaching}$ rate constant $\approx 600 \frac{cm^2}{J*M}$ \cite{Dysart2005CalculationCells} for porphyrins and is a function of light exposure $\frac{J}{cm^2}$.
+for our kinetic model that incorporates both the direct effects of $^1\Delta_g$ and the direct effects of light through $k_{bleaching} \approx 600 \frac{cm^2}{J*M}$ \cite{Dysart2005CalculationCells} which is a function of light exposure $\frac{W}{cm^2}$.
 
-\subsubsection{Energy Transfer}
-The energy transfer from $\ce{^3PS}$ to $^3\Sigma_g^-$  in \cref{excited_ps_steps} is described with by the kinetics expression
+\subsubsection{Energy Transfer reactions}
+The energy transfer $\ce{^3PS + ^3\Sigma_g^- -> ^1PS + ^1\Delta_g^}$ in \cref{excited_ps_steps} is described by the rate law
 \begin{equation} \label{energy_transfer_kinetics}
     \frac{d[^1\Delta_g]}{dt} = k_{transfer}*\Phi_{transfer}*[^3PS]*[^3\Sigma_g^-]. 
 \end{equation}
-The rate constant $k_{transfer}$ is the inverse of the decay time of $\ce{^3PS}$, which for a porphyrin PS appears to be $100 ns$ in aqueous after accounting for the reported value \cite{Kupper2002KineticsOxygen} in acetone solvent that significantly increases the lifetime of excited states \cite{Spikes1992QuantumUroporphyrin}. The $^1\Delta_g$ phosphorescence side reaction, which often emits a specific infrared wavelength that can be measured to approximate the $[^1\Delta_g]$ \cite{Macpherson1993DirectCentres}, is kinetically represented 
+The rate constant $k_{transfer}$ is the inverse of the decay time of $\ce{^3PS}$, which for a porphyrin PS appears to be $100 ns$ in aqueous after accounting for the reported value \cite{Kupper2002KineticsOxygen} in acetone solvent which significantly increases the lifetime of excited states \cite{Spikes1992QuantumUroporphyrin}. The $^1\Delta_g$ phosphorescence side reaction, which often emits a specific infrared wavelength that can be measured to approximate the $[^1\Delta_g]$ \cite{Macpherson1993DirectCentres}, is kinetically represented 
 \begin{equation}
     \frac{d[^3\Sigma_g^-]}{dt} = k_{phosphorescence}*[^1\Delta_g]
 \end{equation}
-where $k_{phosphorescence}$ is a function of $\frac{CFU}{mL}$, since the $^1\Delta_g$ lifetime is greater in biological material and thus it is proportional with the bacterial concentration in planktonic simulations \cite{Maisch2007TheBacteria}. The minimum lifetime is limited to $3.5\mu s$ for pure water \cite{Baier2005Time-resolvedCells}.
+where $k_{phosphorescence}$ is a function of $\frac{CFU}{mL}$, since the $^1\Delta_g$ lifetime is greater in biological material \cite{Maisch2007TheBacteria} than water \cite{Baier2005Time-resolvedCells}.
 
 \subsubsection{Oxidation}
-The oxidation reactions are the primary consumers of oxygen in the kinetic system. The simulated system, however, is assumed to possess an equilibrium between the solution and the atmosphere, which prevents the depletion of oxygen in the system. This is represented by replacing each oxygen molecule that is consumed during the oxidation of biological substrate in \cref{membrane_oxidation,EPS_oxidation}.
+The following oxidation reactions consume oxygen, yet, our model assumes a steady-state of oxygen where the headspace of the simulated system perfectly replenishes consumed oxygen molecules.
 
 \paragraph{Cytoplasmic membrane} 
-The oxidation of cytoplasmic phospholipids, which we approximate as fatty acid chains, is represented as an irreversible second-order reaction \cite{Watabe2007OxidationMembranes.}
+The oxidation of cytoplasmic phospholipids, which we approximate as fatty acid (FA) chains, is represented as an irreversible reaction \cite{Watabe2007OxidationMembranes.}
 \begin{equation} \label{membrane_oxidation}
-    \ce{^1\Delta_g + FA -> FA-OOH}.
+    \ce{^1\Delta_g + FA -> FA-OOH}
 \end{equation}
-and a second-order kinetic expression
+and a second-order rate law
 \begin{equation} \label{membrane_oxidation_kinetics}
     \frac{d[FA-OOH]}{dt} = k_{fa}*[^1\Delta_g]*[FA]~.
 \end{equation}
-The rate constant $k_{fa} \approx 769 \frac{L}{g*s}$ \cite{Mukai2019KineticSolution} and the concentration of fatty acid chains in the cytoplasmic membrane is described in units of $\frac{g}{L}$, after calculating the weighted average MW of fatty acids within the membrane. 
+The rate constant $k_{fa} \approx 240 \frac{L}{g*s}$ \cite{Mukai2019KineticSolution} is reported with concentration in units of $\frac{g}{L}$, which we calculated from 1) the weighted average MW of the fatty acid chains in the cytoplasmic membrane, ii) the volume of the cytoplasmic membrane, and iii) an assumption that the cytoplasmic membrane volume consists entirely of fatty acid chains. 
 
 \paragraph{Biofilm matrix} 
-The oxidation of EPS is reported to be significant during PDI \cite{Beirao2014PhotodynamicPorphyrin}. This process is represented through an irreversible reaction
+The oxidation of EPS, which represents the biofilm matrix, is reported to be significant during PDI \cite{Beirao2014PhotodynamicPorphyrin}. This process is represented through an irreversible reaction
 \begin{equation} \label{EPS_oxidation}
     \ce{^1\Delta_g + EPS -> EPS-OOH},
 \end{equation}
-which competes with \cref{membrane_oxidation} for $^1\Delta_g$ and thereby lessens the efficacy of PDI upon biofilms relative to planktonic organisms. The oxidation of bioiflm polymers is kinetically represented  
+and a first-order reaction
 \begin{equation} \label{EPS_oxidation_kinetics}
     \frac{d[EPS-OOH]}{dt} = k_{EPS_{oxidation}}*[^1\Delta_g]
 \end{equation}
-with an empirical rate constant that we approximated as $37.75~\frac{1}{s}$ for \textit{S. aureus}, and an initial concentration of EPS that is $9x$ greater than the cellular mass, in proportion to mass distributions of biofilms \cite{Flemming2010TheMatrix}.
+with an empirical rate constant of $37.75~\frac{1}{s}$ for \textit{S. aureus}, and an initial concentration of EPS that is $9x$ greater than the cellular mass \cite{Flemming2010TheMatrix}.
+This reaction competes with \cref{membrane_oxidation} for $^1\Delta_g$ and thereby lessens the efficacy of PDI upon sessile organisms relative to planktonic organisms. 
+
+\subsubsection{Microbial growth}
+Cellular reproduction is simulated continuously as simply the increase in [FA] -- $\ce{->FA}$ -- since this is the only component of the cell that is pertinent to our model. The corresponding first-order rate law
+\begin{equation}
+    \frac{d[FA]}{dt} = k_{2x} * [FA]~,
+\end{equation}
+considers that growth is proportional with the current population of living microbes (represented by the fatty acids concentration). The rate constant $k_{2x}$ is the inverse of the doubling time of the simulated organism. 
 
 \subsection{Inactivation fitting}
 
-Simulation results of chemical concentrations over time are processed into predictions of bacterial inactivation through a series of mathematical steps. 1) The proportion of oxidized substrate
+Inactivation is deduced from oxidation in our kinetic model by presuming an oxidative threshold for lysis around $0.01\%$ of the membrane fatty acids. This is implemented by geometrically translating the log10 predictions of oxidation, as a fraction of the total membrane fatty acids
 \begin{equation} \label{oxidation_proportion}
-    ox_{proportion} = \frac{[FA-OOH]}{[FA-OOH]+[FA]}
+    ox_{proportion} = \frac{[FA-OOH]}{[FA-OOH]+[FA]}~,
 \end{equation}
-is fitted to a sigmoidal curve, similar to other models \cite{Xiong1999AInactivation}. We used the Hill-equation \cite{Gesztelyi2012ThePharmacology} as a sigmoidal model of biochemistry that derives from mass-action kinetics similar to the Michaelis-Menten kinetic model. A fitting module for the Hill-equation did not exist prior to our work; hence, the HillFit Python module was developed to fit the oxidation predictions with a variation of the Hill-equation \cite{Inoue2016OscillationActivation} 
-\begin{equation} \label{hill_eq}
-    y=bottom+\frac{(top-bottom)*x^n}{EC50^n+x^n}
-\end{equation}
-that improves its fit to data. The regression parameters from the fitted Hill equation are then systematically adjusted to construct an inactivation plot that replicates experimental results while preserving the underlying Hill-equation relationship. These parameter adjustments are presented in Table \ref{hill_parameters} for both simulations of planktonic and biofilm bacteria. The top parameter of \cref{hill_eq} is adjusted asymptotically to a limit that follows an subtly different empirical expression for planktonic $1-10^{-\Omega}$ than biofilm $1-10^{-0.7-\Omega }$ simulations, where $\Omega = wattage^{\frac{1}{5}}-log10(1-final_{oxidation\_proportion})$. This top limit is empirically determined to manifest in the log-inactivation predictions being 1-2 greater than the log-oxidation from \cref{oxidation_proportion}, which embodies our assumption -- implicit in experimental studies -- that $1-10\%$ of membrane phospholipids must oxidize for a cell to lyse. The different parameter adjustments for sessile versus planktonic bacterial systems is that biofilms possess numerous factors, such as heterogeneous diffusion rates, that are not explicitly considered in our kinetic model, and thus custom equation adjustments are our means of compensating these factors into the final predictions. 
+by $\approx 4$-log: e.g. oxidation predictions of [3,4,5] become inactivation predictions of [7,8,9]. 
 
-\begin{table}[]
+\begin{table}
     \centering
     \begin{tabular}{l|c|c}
         \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
@@ -191,107 +171,72 @@ that improves its fit to data. The regression parameters from the fitted Hill eq
     \label{hill_parameters}
 \end{table}
 
-% \subsubsection{Cross-linked systems}
+\subsection{Implementation}
+The model was implemented in SBML \cite{Keating2020Models} through the Antimony syntax of the Tellurium Python module \cite{Choi2018Tellurium:Biology}. This standard model format was combined with a SED-ML description of the model figure \cite{Waltemath2011ReproducibleLanguage} into a COMBINE OMEX file \cite{Bergmann2014COMBINEProject}, which is transparent and reproducible representation of each simulation. 
+\subsubsection*{Model calibration}
+The SBML model format may further enable the programmatic calibration of the lysis threshold parameter through training data and the COPASI software \cite{Bergmann2017COPASIBiotechnology}. This lysis threshold is not reported in literature; hence, this threshold, which emerges from our model, is an original prediction and typifies the value of a mechanistic model that can elucidate opaque details.
 
-% \paragraph{iPDIpy}
-% The PDIpy API is graphically interactive through a user interface iPDIpy, which is depicted in Figure \ref{}. This interface provides a convenient means for parameterizing a PDIpy simulation, exporting and importing sets of parameters, parsing the processed simulation data, viewing error messages and calculated values, viewing the output figure of bacterial reduction over time, and parsing the processed data through a build-in function. The iPDIpy version of PDIpy is downloadable from our GitHub repository.
+\paragraph{Beirao et al.}
+The Beirao et al. study \cite{Beirao2014PhotodynamicPorphyrin}, which examined the efficacy of a dissolved PS over a range of concentrations against both planktonic and sessile states of \textit{S. aureus}, was used as a training data set. The training procedure included: a) recreating each reported trial through our model, and b) empirically adjusting the threshold parameter such that the total variance across all of the trials is minimized. The final \%-errors between the calibrated predictions and the reported values from each trial are depicted in Table \ref{beirao_et_al_data} and Figure \ref{beirao_et_al}. 
 
-% \begin{figure}
-%     \centering
-%     \includegraphics{}
-%     \caption{
-%         The left pane of the GUI will contain command buttons like restarting the simulation or export results, while the right pane will edit the simulation data and or bacterial qualities/species.
-%     }
-%     \label{iPDIpy_interface}
-% \end{figure}
-
-
-\section{Case Studies}
-A PDI experiment from literature that thoroughly described its experimental procedure was parameterized into PDIpy, and the resultant predictions were compared with the reported results. These comparisons all pertain to \textit{S. aureus}, which is a model coccus bacterium that is abundantly studied with PDI and AMR infections as MRSA.
-
-% \subsection{Cross-linked PS}
-% Experimental data from our lab with cross-linked PSs (unpublished) was parameterized, in Table \ref{}, into PDIpy. The predicted reduction curve over time in Figure \ref{} agreed with the experimental data at the measured time of 6 hours and 98\% reduction, which supports that the software yields accurate predictions. 
-
-% \paragraph{}
-% .
-
-% \subsection{Solution PS}
-
-\paragraph{Beirao et al.\cite{Beirao2014PhotodynamicPorphyrin}}
-This paper experimentally examines the efficacy of a dissolved PS, over a range of concentrations, against both planktonic and sessile bacterial states. The ample details of experimental conditions were parameterized into PDIpy, and the predicted log-inactivation was contrasted with the reported log-inactivation at various times, concentrations, and bacterial states in Table \ref{beirao_et_al_data}. The predicted log-oxidation and log-inactivation for a few of the simulated conditions are plotted in Figure \ref{beirao_et_al}. These plots cannot be contrasted with reported data since log-inactivation was only reported by Beirao et al. at one time, and not over a continuum of times that would be required to populate a figure. The regression plots from fitting the Hill-equation to the log-oxidation results of Figure \ref{beirao_et_al} is depicted in Figure \ref{hill_regression}, respectively, where the very precise fitting -- $R^2 > 0.996$ -- supports that our kinetic model of PDI fundamentally recreates the biochemical relationship that is predicted by the Hill model of kinetics.
-
-\begin{table}[h]
+\begin{table}
     \centering
     \begin{tabular}{c|c|c|c|c|c}
         Bacterial & [PS] & Inactivation & Reported & Predicted & \multirow{2}{1.2cm}{\%-error}\\
-        state & ($\mu m$) & (-log10) & (min) & (min) & \\
+        state & ($\mu M$) & (-log10) & (min) & (min) & \\
         \toprule
-        \multirow{3}{1.5cm}{planktonic} & 5 & 7.6 & 51 & 117 & 119\\
-        & 10 & 7.6 & 51 & 36 & -29\\
-        & 20 & 7.6 & 42 & 12 & -71\\
+        \multirow{3}{1.5cm}{planktonic} & 5 & 7.6 & 51 & 87 & 60\\
+        & 10 & 7.6 & 51 & 39 & -23\\
+        & 20 & 7.6 & 30 & 18 & -40\\
         \midrule
-        \multirow{3}{1.5cm}{sessile} & 5 & 3.6 & 390 & 566 & 45\\
-        & 10 & 5 & 390 & 310 & -20\\
-        & 20 & 6.3 & 390 & 247 & -37\\
+        \multirow{3}{1.5cm}{sessile} & 5 & 3.6 & 270 & 247 & -9\\
+        & 10 & 5 & 270 & 337 & 25\\
+        & 20 & 6.3 & 270 & 256 & -5\\
         \bottomrule
     \end{tabular}
     \caption{
-        A quantitative comparison of inactivation data from Beirao et al. versus PDIpy predictions. 
+        A quantitative comparison of inactivation data from Beirao et al. versus PDIpy predictions after its calibration. 
     }
     \label{beirao_et_al_data}
 \end{table}
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/20uM.png}
-    \vspace{5mm}
-    \midrule
-    \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/10uM_biofilm.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/training/5uM.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/training/5uM_biofilm.png}
     \caption{
-        Two exemplary figures of PDIpy replications of the Beirao et al. data for a) planktonic and b) biofilm bacterial states.
+        Model predictions of the Beirao et al. training data for a) planktonic and b) sessile states, where the dot signifies the reported datum from the trial experiment.
     }
     \label{beirao_et_al}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/20uM_regression.png}
-    \vspace{5mm}
-    \midrule
-    \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/examples/10uM_biofilm_regression.png}
-    \caption{
-        The Hill-equation regressions for the oxidation plots of Figure \ref{beirao_et_al}, respectively. The high $R^2$ correlation supports that our chemical model of PDI recreates a sigmoidal biochemical relationship. The greater number of data points in panel b) is the consequence of a far longer simulation time than the simulation of panel a).
-    }
-    \label{hill_regression}
-\end{figure}
+\section*{Sensitivity analyses}
 
-
-\section{Sensitivity analyses}
+Numerous sensitivity analyses were conducted to determine the significance of experimental variables for PDI efficacy, which can signal worthwhile variables for further experimentation. One of these analyses is highlighted in the following section, while the other analyses are detailed in the Supporting Information. 
 
 \paragraph{Light intensity}
-The sensitivity of simulation results to light intensities, across the range of $[10, 100,000] Lux$, was explored. The trend over this 4-log range, which is represented by Figure \ref{light_intensities}, is that the proportion of excited PS asymptotically approches 100\% and that minimal gains are observed beyond $\approx 13,000 lux$ from the perspective of exciting PSs. The influence of photobleaching appears to be negligible at the examined time length and light intensity, where a negative slope in the plotted excitation proportion over time would be indicative of photobleaching as a decreasing proportion of PSs are able to electronically excite.
+The sensitivity of PDI inactivation to light intensities was explored across a 4-log range of $Lux$ values. The trend over this range, which is represented by Figure \ref{light_intensities}, reveals that the proportion of excited PS plateaus beyond $\approx 13,000~lux$. Direct inactivation from light, perhaps by exciting endogenous photosensitizers within cells \cite{Lippincott-schwartz2003PhotobleachingTechniques,Jin1995PhotolysisSolution,Itoh2001PhotodynamicPatients}, may still proportionally increase inactivation with light intensity beyond $\approx 13,000~lux$, however, these processes are currently not captured by our model. 
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/215_lux.png} \\
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/light_intensity/599_lux.png} \\
     \vspace{5mm}
     \midrule
     \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/100000_lux.png}
+    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/light_intensity/12915_lux.png}
     \caption{
-        The proportion of excited PS at two contrasting light intensities: a) $215~Lux$ and b) $100000~Lux$. The subtle negative slope is the consequence of photobleaching, where the quantity of excitable PSs decreases over time. This effect is more prominent in b) than in a) since photobleaching is a function of light intensity.
+        The proportion of excited PS, with the associated oxidation and inactivation predictions, at two contrasting light intensities: a) $599~Lux$, which approximates ambient indoor light, and b) $12915~Lux$, which approximates ambient daylight. The subtle negative slope that is proportion to the light intensity is the consequence of photobleaching, where incident photons can trigger irreversible rearrangements of the PS and thereby decrease the quantity of photoactive PSs over time.
     }
     \label{light_intensities}
 \end{figure}
 
-\section{Discussion}
-The approximate alignment of inactivation between the PDIpy predictions and reported measurements by Beirao et al. supports that the underlying kinetic model represents essential PDI processes, however, the model has room for improvement. The predicted inactivations extensively varied, where simulations with low concentrations of PS reached the reported log-inactivation too late while simulations with high concentrations of PS reached the reported log-inactivation too early. This spread was interestingly relatively greater with the simulation of planktonic bacteria relative to the simulation of sessile bacteria, which suggests that readjusting the Hill parameters in Table \ref{hill_parameters} may resolve the discrepancy, since these parameter adjustments differ between the two simulation types. The discrepancy may alternatively be explained by greater experimental variability with planktonic bacteria than biofilm bacteria. Replicating other experimental studies will clarify the source and resolution of this discrepancy. 
+\\section*{PDIpy}
+The kinetic model is defined as a Python API and is offered through the Python Package Index. Parameter files are also provided with default values for each category of the model variables, which provide an efficient and transparent means of parameterizing a simulation and which further supplement user-defined parameters. The complete list of accepted parameters and formats are detailed in the API documentation.
 
-The sensitivity analysis of light intensity revealed that the proportion of excited PSs plateaus beyond $\approx 10,000 lux$ as light intensity increases. This particular insight may be informative for experimentalists who are designing PDI systems with different light intensities, or who may want to separate observed light effects between $\ce{^1\Delta_g}$ generation from other effects of light per se. This type of broad inquiry over a 4-log value range furthermore exhibits the uniqueness of PDIpy relative to extant PDI models that neither embody the fundamental kinetics of PDI, which enable this kind of inquiry, nor provide an API interface that allows a user to efficiently execute numerous simulations with subtly different parameters.  
+\section*{Discussion}
+The alignment of model predictions and reported inactivations from our training set supports that the API and underlying kinetic model may guide the design of experimental PDI systems. The \%-error between the PDIpy predictions and the training data was interestingly greater in simulations of planktonic bacteria relative to sessile bacteria, which suggests that complexities of the planktonic phase -- e.g. PS permeability, which causes cytosolic oxidation -- are currently not captured by our kinetic model. 
 
-We believe that this kinetic model and its open-source implementation in PDIpy will practically support experimentalists in researching PDI technologies, and will ideally inspire other computational biologists to develop programs from this framework that can foster the discovery of new antibiotic methods and prevent antimicrobial resistant epedemics.
+The sensitivity analyses of the model variables illuminate its dynamic capacity to explore the space of PDI systems. This exhibits distinguishing features of this model, relative to other PDI models, to i) simulate diverse sets of experimental PDI conditions; ii) intuitively execute the kinetic model, and automatically visualize results, through the API interface; and iii) resolve the fundamental kinetics of PDI. We believe that this kinetic model and its open-source implementation as PDIpy will support developing PDI applications that can confront the looming crisis of AMR.
 
 \section{Author Contributions}
 \begin{description}
@@ -301,4 +246,4 @@ We believe that this kinetic model and its open-source implementation in PDIpy w
 \end{description}
 
 \section{Acknowledgments}
-The authors are grateful to Ethan Sean Chan for his development of the framework for iPDIpy, which will be introduced in a future release of PDIpy. The authors thank the members of the Buckley and Wolff Groups at the University of Victoria for contributing ideas and data that were used to refine this PDI model. Andrew finally thanks Hiroaki Imoto for his contributions and guidance in developing the HillFit module that was used to fit data in PDIpy.
+The authors are grateful to Ethan Sean Chan for developing the framework of iPDIpy, which will be introduced in a future release of PDIpy. The authors thank the members of the Buckley and Wolff Groups at the University of Victoria for contributing ideas and data that were used to refine this PDI model. 
