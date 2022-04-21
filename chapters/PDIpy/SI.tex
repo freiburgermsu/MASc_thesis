@@ -6,8 +6,8 @@ The electronic difference between $^1\Delta_g$ and $^3\Sigma_g^-$ is best depict
 \begin{figure}
     \centering
     \begin{tabular}{c|c}
-        \includegraphics[width = 0.48\textwidth]{images/background/triplet_mo_diagram.png}
-        & \includegraphics[width = 0.48\textwidth]{images/background/singlet_mo_diagram.png}
+        \includegraphics[width = 0.48\textwidth]{images/PDIpy/background/triplet_mo_diagram.png}
+        & \includegraphics[width = 0.48\textwidth]{images/PDIpy/background/singlet_mo_diagram.png}
     \end{tabular}
     \caption{
         Qualitative orbital diagrams for diatomic oxygen. Each barbed arrows represent single electron, and each platform represents the electronic orbital of the respective label. Panel a) depicts the ground triplet state ($^3\Sigma_g^-$), which characteristically contains two radical electrons in its highest occupied molecular orbital (HOMO). Panel b) depicts the excited singlet state ($^1\Delta_g$), which characteristically contains a $\pi^*$-bond in its HOMO that destabilizes the molecule and contributes to greater reactivity.
@@ -15,6 +15,21 @@ The electronic difference between $^1\Delta_g$ and $^3\Sigma_g^-$ is best depict
     \label{mo_diagrams}
 \end{figure}
 
+\section{Excitation proportion} \label{excitation_proportion_estimate}
+The steps for estimating the proportion of adsorbed photons by the simulated aqueous solution that excite a PS electron are the following. 1) The reported intensity of incident light from the respective light source -- i.e. irradiance ($\frac{mW}{cm^2}$), lux ($\frac{lumen}{m^2}$), or lumens (lumens) -- is converted into $watts_{incident}$ ($\frac{J}{s}$). 2) This incident wattage is attenuated by the proportion of the emission spectrum $light_{incident}$ that resides within the excitation spectrum of the parameterized PS $light_{excitation}$, 
+\begin{equation}
+    watt_{excitation} = \frac{light_{excitation}}{light_{incident}}*watts_{incident}.
+\end{equation}
+3) The $watt_{excitation}$ is then used to calculate the moles of incident photons that strike photosensitizers per timestep 
+\begin{multline} \label{photons_per_second}
+    \frac{photons_{PS}}{timestep}=\frac{<h\nu_{excitation}>}{h*c}*watts_{excitation} \\
+    *\frac{second}{timestep}*reflection*scattering*\frac{1 mole}{N_A}*\frac{vol_{PS}}{vol_{total}},
+\end{multline}
+where $reflection \approx 96 \%$ and represents the proportion of incident photons that penetrate an aqueous solution \cite{Gross1993SingletLiposomes}; and $scattering$  
+\begin{equation}
+    \frac{I_z}{I_0} = e^{-k*z}~,
+\end{equation}
+represents the proportion of light $\frac{I_z}{I_0}$ that reaches a specified depth $z$ \cite{RobertW.1973TheSea}, where $k$ is the attenuation coefficient that is $\approx 0.04~(\frac{1}{m})$ \cite{Lorenzen1972ExtinctionPhytoplankton} for clear water. The $\frac{vol_{PS}}{vol_{total}}$ represents the volume proportion of the PS ($vol_{PS}$) -- calculated as the product of the quantity of PS molecules and the volume per molecule per its structure -- to the total volume of the solution in which the PS resides ($vol_{total}$). The average excitation wavelength of the PS ($<h\nu_{excitation}>$) is calculated as the weighted average of the Soret and Q excitation bands, in proportion to their relative contribution in generating $^1\Delta_g$ \cite{Nitzan2001PhotoinactivationWavelengths,Hoenes2020PhotoinactivationWavelength}, since this averaged wavelength simultaneously embodies contributions of both excitation bands. The resultant $\frac{photons_{PS}}{timestep}$ from \cref{photons_per_second} is then divided by the $\frac{photons_{total}}{timestep}$ to complete the kinetic expression in \cref{ps_excitation_kinetics} that calculates the excitation of PS in each timestep. 
 
 \subsection{Oxidized membrane region}
 The region of the bacterial membrane that is oxidized by PDI systems with cross-linked PSs may be a small fraction of the total membrane, provided that the bacterium does not have a tremendous angular momentum. This is the consequence of the stationary PS on one side of the bacterium, unlike dissolved PSs that encapsulate the simulated bacterium and thereby oxidize it from all sides. The oxidized region of a coccus bacterial cell can be determined from the cellular radius and volume
