@@ -3,10 +3,10 @@
 
 \section{Supporting Information}
 
-\section{"dFBA" module}
+\subsection{"dFBA" module}
 We attempted to repurpose the "dFBA" module into a scalable and more accessible module for Windows OS. This was inhibited by the “dfba\_utils.so” file, and our attempt to replace this file with a dynamic linked library (DLL) analogue was thwarted by incompatibilities between C code in the library dependencies such as NVectors, SUNDIALS, and dlfcn and the C++ code of the DLL file. A further complication was that a few of these libraries, such as SUNDIALS, dynamically created the header files depending upon the user’s operating system; thus, a distinct DLL file would be required for each possible user architecture, which is not practical. The dFBApy module was therefore developed. 
 
-\section{Thermodynamic metabolism}
+\subsection{Thermodynamic metabolism}
 We considered conducting metabolism for WCMpy via thermodynamic gradients, rather than conventional dFBA kinetics. This proposed logic is incomplete, since we migrated to the kinetic models during its development; however, the preliminary logic and calculations of the following sub-sections may still inspire the development of a thermodynamic metabolic approach.  
 
 \subsubsubsection{Membrane absorption}

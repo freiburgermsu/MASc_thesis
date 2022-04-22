@@ -126,7 +126,7 @@ and a second-order rate law
 \begin{equation} \label{membrane_oxidation_kinetics}
     \frac{d[FA-OOH]}{dt} = k_{fa}*[^1\Delta_g]*[FA]~.
 \end{equation}
-The rate constant $k_{fa} \approx 240 \frac{L}{g*s}$ \cite{Mukai2019KineticSolution} is reported with concentration in units of $\frac{g}{L}$, which we calculated from 1) the weighted average MW of the fatty acid chains in the cytoplasmic membrane, ii) the volume of the cytoplasmic membrane, and iii) an assumption that the cytoplasmic membrane volume consists entirely of fatty acid chains. 
+The rate constant $k_{fa} \approx 240 \frac{L}{g*s}$ \cite{Mukai2019KineticSolution} is reported with concentration in units of $\frac{g}{L}$, which we calculated from i) the weighted average MW of the fatty acid chains in the cytoplasmic membrane, ii) the volume of the cytoplasmic membrane, and iii) an assumption that the cytoplasmic membrane volume consists entirely of fatty acid chains. 
 
 \paragraph{Biofilm matrix} 
 The oxidation of EPS, which represents the biofilm matrix, is reported to be significant during PDI \cite{Beirao2014PhotodynamicPorphyrin}. This process is represented through an irreversible reaction
@@ -155,21 +155,21 @@ Inactivation is deduced from oxidation in our kinetic model by presuming an oxid
 \end{equation}
 by $\approx 4$-log: e.g. oxidation predictions of [3,4,5] become inactivation predictions of [7,8,9]. 
 
-\begin{table}
-    \centering
-    \begin{tabular}{l|c|c}
-        \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
-        \multirow{2}{0}{Planktonic} & EC50 & -76\% \\
-         & nH & +100\% \\
-         \midrule
-         \multirow{2}{0}{Biofilm} & EC50 & -65\% \\
-         & nH & +120\% \\
-    \end{tabular}
-    \caption{
-        The Hill parameters adjustments that are enacted to create the inactivation plot for both planktonic and biofilm systems. 
-    }
-    \label{hill_parameters}
-\end{table}
+% \begin{table}
+%     \centering
+%     \begin{tabular}{l|c|c}
+%         \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
+%         \multirow{2}{0}{Planktonic} & EC50 & -76\% \\
+%          & nH & +100\% \\
+%          \midrule
+%          \multirow{2}{0}{Biofilm} & EC50 & -65\% \\
+%          & nH & +120\% \\
+%     \end{tabular}
+%     \caption{
+%         The Hill parameters adjustments that are enacted to create the inactivation plot for both planktonic and biofilm systems. 
+%     }
+%     \label{hill_parameters}
+% \end{table}
 
 \subsection{Implementation}
 The model was implemented in SBML \cite{Keating2020Models} through the Antimony syntax of the Tellurium Python module \cite{Choi2018Tellurium:Biology}. This standard model format was combined with a SED-ML description of the model figure \cite{Waltemath2011ReproducibleLanguage} into a COMBINE OMEX file \cite{Bergmann2014COMBINEProject}, which is transparent and reproducible representation of each simulation. 
