@@ -105,10 +105,10 @@ Scaling predictions from these two permeate flux methods are juxtaposed in Figur
 \subsubsection{Geochemistry}
 The geochemistry of RO scaling in our model is predicated upon the kinetic rate laws and thermodynamic equilibria that define each mineral dissolution and precipitation. These chemical processes are encapsulated in the PHREEQC databases that offer different a) geochemical models, b) permissible ranges of conditions, and c) sets of potential minerals to best represent a given system. These databases are complemented with the ChemW Python package that rigorously calculates the molecular mass of each mineral (see the ChemW PyPI documentation) to permit scaling predictions in the conventional units of $\frac{g~scale}{m^2~membrane}$.
 
-\begin{figure}[t]
+\begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/permeate_approach/linear_cf.png} \\ \midrule
-    \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/permeate_approach/linear_permeate.png} 
+    \includegraphics[width=0.9\linewidth]{images/ROSSpy/sensitivity_analyses/permeate_approach/linear_cf.png} \\ \midrule
+    \includegraphics[width=0.9\linewidth]{images/ROSSpy/sensitivity_analyses/permeate_approach/linear_permeate.png} 
     \caption{
         Predicted scaling of the Red Sea at $CF_{effluent}=1.114$ via the a) linear CF and b) linear permeate flux methods. The linear increase in CF of a) slightly homogenizes the distribution of scaling, while the exponential increase in CF of b) skews the distribution of scaling to lesser initially and eventually greater, relative to the linear method of a). These subtle differences in scaling distribution neutralize as the total scaling through both methods are equivalent. 
     }
@@ -134,7 +134,7 @@ This study examines RO brine from 10 small desalination plants in Oman and 8 pla
 \paragraph{Hajbi et al.\cite{Hajbi2010ReuseBrine}}
 This study  evaluates the recovery of commodity salts from RO brine at a plant in Tunisia. The authors detail specifications of line D -- a polyamide filtration membrane -- in the plant system, in addition to the feed geochemistry, which were all parameterized into our model. The predicted concentrations in Figure \ref{bar_graphs}c were less aligned than the aforementioned two studies, with two ions exceeding $25\%-error$. This is attributed to $40\%$ fewer feed ions being defined by this study, where the incomplete geochemical representation of the feed skews the geochemical calculations of PHREEQC. This is corroborated by the accuracy of the CF prediction in Figure \ref{bar_graphs}c, despite inaccurate concentration predictions, which suggests that the error resides with the geochemical processes and not the reactive transport system. 
 
-\begin{figure}[t]
+\begin{figure}
     \centering
     \begin{tabular}{c|c}
         \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/ROSSpy/case_studies/Zaman_comparison.png}} \\ \midrule
@@ -158,7 +158,7 @@ The quantitative verification consisted of two simple cases of Gypsum precipitat
     \centering
     \begin{tabular}{c|ccccc}
       \toprule
-      \textbf{a} & $Ca^{2+}$ & $+$ & $SO_4^{2-}$ & $\leftrightharpoons$ & $CaSO_4$ \\
+       & $Ca^{2+}$ & $+$ & $SO_4^{2-}$ & $\leftrightharpoons$ & $CaSO_4$ \\
       \midrule
       I & $0.3545$ && $1.816$ && $0$ \\
       C & $-0.01859$ && $-0.01859$ && $+0.01961$ \\
@@ -185,7 +185,7 @@ This study evaluates the use of a membrane bioreactor -- a hollow-fiber membrane
 
 \begin{figure}
     \begin{tabular}{c|c}
-        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/ROSSpy/case_studies/Karabelas_2020_wateq4.png}} \\
+        \multicolumn{2}{c}{\includegraphics[width=\linewidth]{images/ROSSpy/case_studies/Karabelas_2020_wateq4f.png}} \\
         \includegraphics[width=0.49\linewidth]{images/ROSSpy/case_studies/Karabelas_2014_pitzer.png} 
         & \includegraphics[width=0.49\linewidth]{images/ROSSpy/case_studies/Lee_pitzer.png} \\
     \end{tabular}
@@ -202,11 +202,11 @@ A few sensitivity analyses were conducted with major variables in the following 
 \subsection{Database section}
 The PHREEQC databases crucially 1) determines the set of minerals that can be simulated; 2) contains all of the kinetic, thermodynamic, and stoichiometric information of each mineral; and 3) employs a chemical activity model: e.g. Pitzer, Debye-H\"uckel, and Davies in Section 7 of the Supporting Information. The Pitzer model \cite{Pitzer1973ThermodynamicsEquations,Pitzer1974ThermodynamicsElectrolytes}, which is implemented in the pitzer PHREEQC database, is touted as being supremely accurate in the concentration range of desalination \cite{VandeLisdonk2001PredictionSystems,Sheikholeslami2004AssessmentUnits,Mohammad2007PredictionMembranes}; however, the narrow breadth of accepted ions and minerals may justify using other databases, such as wateq4, for complex or uncommon feed sources. Each of the 13 databases were simulated in desalinating the Red Sea, where the $Amm$, $Core10$, $LLNL$, and $Minteq.v4$ databases failed to numerically converge while the scaling predictions from the other $\frac{9}{13}$ databases are summarized in Figure \ref{database_selection}. The database selection evidently alters scaling predictions; thus, the database must be carefully selected for a given system after reviewing the PHREEQC User Manual or inquirying to the PHREEQC user forum \url{PHREEQCusers.org}.
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \begin{tabular}{c|c}
         \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/ColdChem.png} 
-        & \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/FreezChem.png} \\ \midrule 
+        & \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/Iso.png} \\ \midrule 
         \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/Pitzer.png} 
         & \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/databases/Sit.png} 
         \\ \bottomrule
@@ -220,7 +220,7 @@ The PHREEQC databases crucially 1) determines the set of minerals that can be si
 \subsection{Feed geochemistry}
 The default feed waters were constructed from experimental geochemical literature into parameter files that are provided with ROSSpy. Users of ROSSpy are encouraged to simulate their own feed water while emulating the syntax of the default parameter files. We propose experimental data of numerous other water sources in Section 5 of the Supporting Information that can predicate feed water files; although, direct measurement of the simulated feed water is preferable to avoid significant influences of anthropogenic pollution \cite{Chen2008SourcesSea} and seasonality \cite{Sarthou2001SeasonalSea} in reported measurements. Thee default water sources, which include both natural seas and produced waters from oil wells, were contrasted in Figure \ref{feed_sources}, where the scaling and brine predictions differed significantly amongst these feed water sources. 
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \begin{tabular}{c|c}
         \includegraphics[width=0.49\textwidth]{images/ROSSpy/sensitivity_analyses/feed_source/Mediterranean.png} &
@@ -233,7 +233,7 @@ The default feed waters were constructed from experimental geochemical literatur
     \label{feed_sources}
 \end{figure}
 
-\subsection{Software}
+\section{Software}
 ROSSpy, which is conceptualized by Figure \ref{workflow}, combines our one-dimensional RO model with post-processing operations that facilitate interpretation of the simulation results. The software a) translates parameters into a PHREEQ input file; b) executes that input file via PHREEQpy; c) processes the simulation results into figures and data tables via Matplotlib \cite{Hunter2007Matplotlib:Environment} and Pandas \cite{McKinney2011Pandas:Statistics} Python packages, respectively; and d) exports all of the simulation content -- e.g. the PHREEQ input file, SVG data figures, and CSV files of parameters, variables, data, and brine predictions -- into a specified folder and directory. The simulation data may be sliced into one-dimensional sets of distance or time that can be plotted against either scaling density or brine concentrations (Figures S2-S3) (see ROSSpy documentation).
 
 
@@ -254,5 +254,5 @@ A one-dimensional approximation of RO reactive transport geochemistry, executed 
 This work was prepared in partial fulfillment of the requirements of the Berkeley Lab Undergraduate Research (BLUR) Program, managed by Workforce Development \& Education at the Berkeley Lab. The project was also partly funded by NSERC Discovery, MITACS Accelerate, CEWIL, and Canada Summer Jobs. 
 
 % Acknowledgements section
-\section{acknowledgement}
+\section{Acknowledgement}
 The authors thank Ethan Sean Chan for his technical assistance in developing a graphical interface of ROSSpy (iROSSpy) that will be released in a future version. 

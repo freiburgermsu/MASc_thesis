@@ -71,8 +71,8 @@ The distinctions between slicing the simulation data through time or module dist
 \begin{figure}
     \centering
     \begin{tabular}{c}
-        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_time_brine.png} \\ \midrule
-        \includegraphics[width=\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_distance_brine.png}
+        \includegraphics[width=0.8\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_time_brine.png} \\ \midrule
+        \includegraphics[width=0.8\linewidth]{images/ROSSpy/sensitivity_analyses/simulation_perspective/all_distance_brine.png}
     \end{tabular}
     \caption{
         Brine formation while slicing through either a) time at the final cell or b) distance at the final time. The end concentrations slightly differ between these two simulation perspectives, where the all\_time perspective calculates the true end of the last cell while the all\_distance perspective calculates the mid-point of the last cell and thus has a slightly lower concentration. The brine represents desalination of the Red Sea through the BW30-400 module.
@@ -255,7 +255,7 @@ Our model represents the feed solution with the single-domain model, despite tha
 
 \begin{figure*}
     \centering
-    \includegraphics[width = \textwidth]{../images/ROSSpy/supporting_information/single_dual_domain.jpg}
+    \includegraphics[width = \textwidth]{images/ROSSpy/supporting_information/single_dual_domain.jpg}
     \caption{
         A conceptual cross-section of the RO module. The membrane layers on top and bottom of the figure are discretized into an arbitrary $n$ cells. The figure illustrates the reactive transport phenomena, where the feed solution progressively becomes more concentrated as it transports through the module. The CP layer becomes much more concentrated than the bulk solution as a consequence of the no-slip boundary condition, where the velocity gradient reaches zero at the membrane surface and thus does not diffuse. These bulk and CP solutions are resolved in the dual-domain model (green boxed regions) and are granulated into a single solution by the single-domain model (red boxed regions). The latter was implemented in our model by necessity of PHREEQC.
     }

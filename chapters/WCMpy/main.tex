@@ -109,8 +109,8 @@ The BiGG \textit{E. coli} core model consists only of the $95$ essential metabol
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/WCMpy/SABIO_dfba.png} \\
-    \includegraphics[width = 0.9\textwidth]{images/WCMpy/simple_argument.png}
+    \includegraphics[width = 0.8\textwidth]{images/WCMpy/SABIO_dfba.png} \\
+    \includegraphics[width = 0.8\textwidth]{images/WCMpy/simple_argument.png}
     \caption{
         Notable concentration changes from simulating the \textit{E. coli} core BiGG model via dFBApy with a) full SABIO-RK kinetics data via the BiGG\_SABIO module and b) a single entry from the kinetics data that was passed as a function argument. Chemicals with defined initial concentrations are depicted at $t=0$, while other chemicals are labeled as relative changes "(rel)" since their initial concentrations are unknown. The metabolic consequences of these concentrations and calculated fluxes are observed over the first timestep, where equilibrium is re-established by generating D-Xylulose 5-phosphate and Alpha-D-Ribose 5 phosphate. The discrete establishment of equilibrium is the consequence of a "stiff" FBA algorithm. 
     }
