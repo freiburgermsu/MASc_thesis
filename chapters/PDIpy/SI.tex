@@ -66,18 +66,21 @@ that introduces an additional $bottom$ parameter for more advantageous fitting. 
     \label{hill_regression}
 \end{figure}
 
-% \begin{table}
-%     \centering
-%     \begin{tabular}{l|c|c}
-%         \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
-%         \multirow{2}{}{Planktonic} & EC50 & -76\% \\
-%          & nH & +100\% \\
-%     \end{tabular}
-%     \caption{
-%         The Hill parameters adjustments that are enacted to create the inactivation plot for simulations of planktonic systems. 
-%     }
-%     \label{hill_parameters}
-% \end{table}
+\begin{table}
+    \centering
+    \begin{tabular}{l|c|c}
+        \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
+        \multirow{2}{0}{Planktonic} & EC50 & -76\% \\
+         & nH & +100\% \\
+         \midrule
+         \multirow{2}{0}{Biofilm} & EC50 & -65\% \\
+         & nH & +120\% \\
+    \end{tabular}
+    \caption{
+        The Hill parameters adjustments that are enacted to create the inactivation plot for both planktonic and biofilm systems. 
+    }
+    \label{hill_parameters}
+\end{table}
 
 \subsection{Oxidized membrane region}
 The region of the bacterial membrane that is oxidized by cross-linked PSs may be a small fraction of the total membrane, provided that the bacterium does not have a tremendous angular momentum. This is not presently captured by our model, but the following logic could incorporate this concept into the model. The oxidized region of a coccus bacterial cell can be determined from the cellular radius and volume
@@ -121,11 +124,11 @@ The sensitivity of simulation results to the light source -- incandescent, LED, 
 
 \begin{figure}
     \centering
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/light_emission/20_visible.png} \\
+    \includegraphics[width = 0.8\textwidth]{images/PDIpy/sensitivity_analyses/light_emission/20_visible.png} \\
     \vspace{5mm}
     \midrule
     \vspace{5mm}
-    \includegraphics[width = 0.9\textwidth]{images/PDIpy/sensitivity_analyses/light_emission/100_visible.png}
+    \includegraphics[width = 0.8\textwidth]{images/PDIpy/sensitivity_analyses/light_emission/100_visible.png}
     \caption{
         A comparison of the same experiment with a light source that possesses a) 20\% visible light and b) 100\% visible light, where the former value appears -- for these simulation conditions -- to be the threshold beyond which the proportion of visible light does not substantial effect inactivation rates. This threshold is likely dependent upon the quantity of incident watts; in which case, this threshold is not broadly generaliazable for all simulation conditions.
     }

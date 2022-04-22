@@ -2,7 +2,7 @@
 \label{PDIpy_chapter}
 
 \section{Introduction}
-Antibiotic resistant infections are projected to exceed cancer in annual deaths, and cost $10^{13}~USD$ per year globally by mid-21$&\text{st}$ century \cite{ONeill2014AntimicrobialNations}. Methicillin-resistant \textit{Staphylococcus aureus} (MRSA) \cite{Baines2015ConvergentAureus,Song2011SpreadStudy,Borg2007PrevalenceCountries} and fluoroquinolone-resistant \textit{Salmonella} \cite{Moghnieh2018EpidemiologyLeague} are two worrisome examples of virulent pathogens that are developing resistance to the antibiotics that subdued them half of a century ago. Antimicrobial resistance (AMR) evolution can be slowed by reducing excessive and incomplete use of antibiotics for human illness and animal agriculture (which is globally the primary consumer of antibiotics \cite{VanBoeckel2017ReducingAnimals,Eggleton2020TheWorld}); however, AMR is the inevitable consequence of specific mechanisms of action with conventional antibiotics: e.g. $\beta$-lactam antibiotics selectively target the Penicillin binding protein \cite{Hartman1984Low-affinityAureus}. Highly selective antibiotics are advantageous for mitigating off-target effects, yet, this strategy applies a strong evolutionary pressure on the pathogen to fortify the targeted vulnerability and thus circumvent the treatment mechanism. The perpetual arms race of medicinal chemists against microbial evolution, which ensues from this antibioic strategy of specific treatment mechanisms, must be replaced with a more sustainable strategy.
+Antibiotic resistant infections are projected to exceed cancer in annual deaths, and cost $10^{13}~USD$ per year globally by mid-21$\text{st}$ century \cite{ONeill2014AntimicrobialNations}. Methicillin-resistant \textit{Staphylococcus aureus} (MRSA) \cite{Baines2015ConvergentAureus,Song2011SpreadStudy,Borg2007PrevalenceCountries} and fluoroquinolone-resistant \textit{Salmonella} \cite{Moghnieh2018EpidemiologyLeague} are two worrisome examples of virulent pathogens that are developing resistance to the antibiotics that subdued them half of a century ago. Antimicrobial resistance (AMR) evolution can be slowed by reducing excessive and incomplete use of antibiotics for human illness and animal agriculture (which is globally the primary consumer of antibiotics \cite{VanBoeckel2017ReducingAnimals,Eggleton2020TheWorld}); however, AMR is the inevitable consequence of specific mechanisms of action with conventional antibiotics: e.g. $\beta$-lactam antibiotics selectively target the Penicillin binding protein \cite{Hartman1984Low-affinityAureus}. Highly selective antibiotics are advantageous for mitigating off-target effects, yet, this strategy applies a strong evolutionary pressure on the pathogen to fortify the targeted vulnerability and thus circumvent the treatment mechanism. The perpetual arms race of medicinal chemists against microbial evolution, which ensues from this antibioic strategy of specific treatment mechanisms, must be replaced with a more sustainable strategy.
 
 \subsection{Photodynamic inactivation}
 
@@ -38,7 +38,7 @@ Mechanistic models of PDI systems -- that capture the chemistry and physiology o
 \end{equation}
 where $N_0$ and $N$ are the number of organisms at times zero and $t$, respectively; $N_r$ is the number of resistant organisms to the treatment method; $P$ is the length of the shoulder curve in the sigmoidal plot; and $\tau$ is the suddenness at which inactivation occurs. Brasel et al. \cite{Brasel2020AnAgalactiae} applied \cref{logistic_model} -- with third-order polynomials that describe $N_r$, $\tau$, and $P$ as a functions of irradiation intensity $\frac{mW}{cm^2}$ and exposure time -- however, the few variable conditions of this logistic model do not permit the investigator to explore the space of possible PDI systems: e.g. variability in the emission spectra of the light source \cite{Brancaleon2002LaserTherapy}, the biochemical profile of the targeted organism, or the efficacy of the simulated PS. Santos et al. \cite{Santos2020ApplicationAureus} offered a response surface model of empirical second-order polynomials to determine inactivation as a function of PS concentration and irradiation time; however, the calibration of this model for a single PS (Eosin Y) and LED light source hinders its applicability to the numerous other combinations in effective PDI systems.
 
-We therefore developed a holistic PDI model that can guide biologists and chemists through the design of optimal systems and PSs, respectively. This model captures the processes of Figure \ref{conceptual_model} through a series of reactions that represent a) the photoexcitation of the photosensitizer; b) the relay of excitation energy to ambient oxygen to form $^1\Delta_g$ ; c) the oxidation of biological material until lysis; and d) continuous growth of the simulated species. Notable variables in our model include: chemical constituency of the cytoplasmic membrane; concentration and absorptivity of the photosensitizer; emission spectra and intensity of the light source; and dimensions of the simulated space. This model constructs a kinetic rate law, from literature measurements, for each of these processes and parameterizes the aforementioned variables. The model yields predictions of membrane oxidation that are converted into predictions of inactivation through a calibrated parameter -- which is the threshold of membrane oxidation that causes lysis -- that derives from training our model with published PDI data. This model is moreover encapsulated into a Python API (PDIpy) in Figure \ref{workflow}, which allows investigators to explore a continuum of values for numerous simulation parameters and to graphically interpret the simulation results (see the PDIpy documentation). We exemplify the model through replicating experimental studies and conducting sensitivity analyses with PDIpy. We expect that this original model, and its implementation as an open-source API, will foster experimental progress towards developing practical PDI systems that combat the medical crisis of antibiotic resistance. 
+We therefore developed a holistic PDI model that can guide biologists and chemists through the design of optimal systems and PSs, respectively. This model captures the processes of Figure \ref{conceptual_model} through a series of reactions that represent a) the photoexcitation of the photosensitizer; b) the relay of excitation energy to ambient oxygen to form $^1\Delta_g$ ; c) the oxidation of biological material until lysis; and d) continuous growth of the simulated species. Notable variables in our model include: chemical constituency of the cytoplasmic membrane; concentration and absorptivity of the photosensitizer; emission spectra and intensity of the light source; and dimensions of the simulated space. This model constructs a kinetic rate law, from literature measurements, for each of these processes and parameterizes the aforementioned variables. The model yields predictions of membrane oxidation that are converted into predictions of inactivation through a calibrated parameter -- which is the threshold of membrane oxidation that causes lysis -- that derives from training our model with published PDI data. This model is moreover encapsulated into a Python API (PDIpy) in Figure \ref{pdi_workflow}, which allows investigators to explore a continuum of values for numerous simulation parameters and to graphically interpret the simulation results (see the PDIpy documentation). We exemplify the model through replicating experimental studies and conducting sensitivity analyses with PDIpy. We expect that this original model, and its implementation as an open-source API, will foster experimental progress towards developing practical PDI systems that combat the medical crisis of antibiotic resistance. 
 
 \begin{figure}
     \centering
@@ -55,7 +55,7 @@ We therefore developed a holistic PDI model that can guide biologists and chemis
     \caption{
         The programmatic workflow of PDIpy that implements our kinetic model. \textbf{Step a} describes the processing and substitution of simulation parameters -- categorically pertaining to the organism, light, and photosensitizer -- into the rate laws of our kinetic model. \textbf{Step b} executes the populated kinetic model through Tellurium, where concentration changes are calculated via rate laws and concentrations are updated with each timestep. The simulation yields predicted fractions of oxidized membrane fatty acids and excited PSs, which are converted into predictions of inactivation via a calibrated parameter. \textbf{Step c} graphically depicts the simulation results with the user-defined specifications. \textbf{Step d} investigates the two-dimensional data of predicted inactivation over time by slicing through either variable via a built-in function.
     }
-    \label{workflow}
+    \label{pdi_workflow}
 \end{figure}
 
 \section{Methods} \label{methods}
@@ -67,7 +67,7 @@ Each aspect of this model is represented with a variable: i.e. the PS absorptivi
 \begin{table}
     \centering
     \begin{tabular}{c|c|c}
-        \textbf{Name} & \textbf{Reaction} & \textbf{Rate law} \\
+        \textbf{Name} & \textbf{Reaction} & \textbf{Rate laws} \\
         \toprule
         Photoexcitation & \ce{^1PS <=>[k_{ex}][k_f] ^3PS} & $\frac{d[\ce{^3PS}]}{dt} = k_{ex} * \frac{photons_{PS}}{photons_{total}} * \Phi_{ex}*[\ce{^1PS}] - k_{f}*[\ce{^3PS}]$\\ \midrule
         Energy transfer & \ce{^3PS + ^3\Sigma_g^- -> ^1PS + ^1\Delta_g} & $\frac{d[^1\Delta_g]}{dt} = k_{transfer}*\Phi_{transfer}*[^3PS]*[^3\Sigma_g^-]$\\ \midrule
@@ -86,10 +86,9 @@ Each aspect of this model is represented with a variable: i.e. the PS absorptivi
 \subsubsection{Photoelectric reactions}
 \paragraph{PS excitation}
 PDI begins with the excitation of the PS via an incident photon. This occurs as the combined result of a photon i) entering the aqueous solution, ii) striking a PS, and then iii) exciting an electron in that PS. This sequence is encapsulated by the kinetic expression
-\begin{multline} \label{ps_excitation_kinetics}
-    \frac{d[\ce{^3PS}]}{dt} =  k_{ex}*\frac{photons_{PS}}{photons_{total}} \\ 
-    *\Phi_{ex}*[\ce{^1PS}] - k_{f}*[\ce{^3PS}]~. 
-\end{multline}
+\begin{equation} \label{ps_excitation_kinetics}
+    \frac{d[\ce{^3PS}]}{dt} =  k_{ex}*\frac{photons_{PS}}{photons_{total}}*\Phi_{ex}*[\ce{^1PS}] - k_{f}*[\ce{^3PS}]~. 
+\end{equation}
 The $k_{ex}$ \& $k_{f}$ rate constants are estimated as the inverse of the rise and decay times for the selected PS, respectively. The rise time for a porphyrin PS is approximated as $50 fs$ based upon estimates of $<100 fs$ \cite{Andersson1999PhotoinducedState} and $[60,90]~ fs$ in ethanol solvent \cite{Gurzadyan1998Time-resolvedZn-tetraphenylporphyrin} that elongates the lifetime of excited molecules relative to water. The decay time, from the S2 fluorescence \cite{Akimoto1999UltrafastPorphyrins}, and $\Phi_{ex}$ ($\frac{PS excited}{photon absorbed}$) are approximated for a porphyrin PS to be $1.5 ns$ and $\approx 0.7$ \cite{Krasnovsky2012PhotochemicalEnvironment}, respectively. The $\frac{photons_{PS}}{photons_{total}}$ \cite{Brasel2020AnAgalactiae}, which is the proportion of photons in the solution that strike a photosensitizer \cite{Santos2020ApplicationAureus}, can derive from either emission and absorption spectra of the incident light and the PS \cite{Gerola2012ChemicalPhotobleaching}, respectively, or the series of steps and approximations that are articulated in the Excitation Proportion section of the Supporting Information. The $[\ce{^1PS}]$ is finally provided in either molar or $\frac{mg}{area}$, where the latter unit for surface-bound PSs is converted into an effective molar of the PS in the volume within which the surface-bound PS resides immediately adjacent to the substratum surface. 
 
 \paragraph{Photobleaching}
@@ -155,22 +154,6 @@ Inactivation is deduced from oxidation in our kinetic model by presuming an oxid
 \end{equation}
 by $\approx 4$-log: e.g. oxidation predictions of [3,4,5] become inactivation predictions of [7,8,9]. 
 
-% \begin{table}
-%     \centering
-%     \begin{tabular}{l|c|c}
-%         \textbf{Bacterial state} & \textbf{Hill parameter} & \textbf{Adjustment} \\
-%         \multirow{2}{0}{Planktonic} & EC50 & -76\% \\
-%          & nH & +100\% \\
-%          \midrule
-%          \multirow{2}{0}{Biofilm} & EC50 & -65\% \\
-%          & nH & +120\% \\
-%     \end{tabular}
-%     \caption{
-%         The Hill parameters adjustments that are enacted to create the inactivation plot for both planktonic and biofilm systems. 
-%     }
-%     \label{hill_parameters}
-% \end{table}
-
 \subsection{Implementation}
 The model was implemented in SBML \cite{Keating2020Models} through the Antimony syntax of the Tellurium Python module \cite{Choi2018Tellurium:Biology}. This standard model format was combined with a SED-ML description of the model figure \cite{Waltemath2011ReproducibleLanguage} into a COMBINE OMEX file \cite{Bergmann2014COMBINEProject}, which is transparent and reproducible representation of each simulation. 
 \subsubsection*{Model calibration}
@@ -185,11 +168,11 @@ The Beirao et al. study \cite{Beirao2014PhotodynamicPorphyrin}, which examined t
         Bacterial & [PS] & Inactivation & Reported & Predicted & \multirow{2}{1.2cm}{\%-error}\\
         state & ($\mu M$) & (-log10) & (min) & (min) & \\
         \toprule
-        \multirow{3}{1.5cm}{planktonic} & 5 & 7.6 & 51 & 87 & 60\\
+        \multirow{3}{2cm}{planktonic} & 5 & 7.6 & 51 & 87 & 60\\
         & 10 & 7.6 & 51 & 39 & -23\\
         & 20 & 7.6 & 30 & 18 & -40\\
         \midrule
-        \multirow{3}{1.5cm}{sessile} & 5 & 3.6 & 270 & 247 & -9\\
+        \multirow{3}{2cm}{sessile} & 5 & 3.6 & 270 & 247 & -9\\
         & 10 & 5 & 270 & 337 & 25\\
         & 20 & 6.3 & 270 & 256 & -5\\
         \bottomrule
@@ -230,7 +213,7 @@ The sensitivity of PDI inactivation to light intensities was explored across a 4
     \label{light_intensities}
 \end{figure}
 
-\\section*{PDIpy}
+\section*{PDIpy}
 The kinetic model is defined as a Python API and is offered through the Python Package Index. Parameter files are also provided with default values for each category of the model variables, which provide an efficient and transparent means of parameterizing a simulation and which further supplement user-defined parameters. The complete list of accepted parameters and formats are detailed in the API documentation.
 
 \section*{Discussion}
